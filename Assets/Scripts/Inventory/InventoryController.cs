@@ -12,15 +12,20 @@ namespace Inventory
         [SerializeField] private IngredientsManager ingredientsManager;
         [SerializeField] private ShelfController inventoryShelf;
         [SerializeField] private Transform parentTransform;
+        [SerializeField] private WorkspaceController workspaceController;
 
         private List<ShelfController> shelves = new List<ShelfController>();
+        private bool _interactable;
         
 
         private void Awake()
         {
+            _interactable = true;
+            
             for (var count = 0; count < shelvesCount; count++)
             {
                 var shelf = Instantiate(inventoryShelf, parentTransform);
+                shelf.SetClickCallback(OnItemClick);
                 shelves.Add(shelf);
             }
 
@@ -28,6 +33,10 @@ namespace Inventory
             foreach (var ingredientType in ingredientTypes)
             {
                 var ingredient = ingredientsManager.GetIngredientByType(ingredientType);
+                
+                if (ingredient == null)
+                    continue;
+                
                 var ingredientAdded = shelves[currentShelfIndex].TryAddIngredient(ingredient);
 
                 if (!ingredientAdded)
@@ -36,6 +45,21 @@ namespace Inventory
                     shelves[currentShelfIndex].TryAddIngredient(ingredient);
                 }
             }
+            
+            SetInteractable(_interactable);
+        }
+
+        private void OnItemClick(Ingredient ingredient)
+        {
+            workspaceController.TryAddIngredient(ingredient);
+        }
+
+        public void SetInteractable(bool value)
+        {
+            _interactable = value;
+            
+            foreach (var shelf in shelves)
+                shelf.SetInteractable(value);
         }
 
         public bool HasPlaceForIngredient()
@@ -54,6 +78,8 @@ namespace Inventory
         {
             foreach (var shelf in shelves)
             {
+                shelf.SetInteractable(_interactable);
+                
                 var ingredientAdded = shelf.TryAddIngredient(ingredient);
 
                 if (ingredientAdded)

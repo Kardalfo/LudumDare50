@@ -1,3 +1,4 @@
+using System;
 using Ingredients;
 using TMPro;
 using UnityEngine;
@@ -11,8 +12,16 @@ namespace Inventory
         [SerializeField] private Image spriteRenderer;
         [SerializeField] private TMP_Text itemsAmount;
         [SerializeField] private Button itemButton;
+        
         private Ingredient _ingredient;
+        private Action<Ingredient> _clickCallback;
+        private bool _interactable;
 
+
+        public void SetClickCallback(Action<Ingredient> clickCallback)
+        {
+            _clickCallback = clickCallback;
+        }
 
         private void Awake()
         {
@@ -32,9 +41,22 @@ namespace Inventory
             gameObject.SetActive(true);
         }
 
+        public void SetInteractable(bool value)
+        {
+            _interactable = value;
+        }
+
         private void OnClick()
         {
-            Debug.Log("ITEM CLICKED");
+            if (!_interactable)
+            {
+                return;
+            }
+            
+            _clickCallback?.Invoke(_ingredient);
+            
+            _ingredient = null;
+            gameObject.SetActive(false);
         }
     }
 }

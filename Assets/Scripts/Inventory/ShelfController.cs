@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Ingredients;
@@ -8,6 +9,18 @@ public class ShelfController : MonoBehaviour
 {
     [SerializeField] private List<InventoryItem> inventoryItems;
 
+
+    public void SetInteractable(bool value)
+    {
+        foreach (var item in inventoryItems)
+            item.SetInteractable(value);
+    }
+    
+    public void SetClickCallback(Action<Ingredient> clickCallback)
+    {
+        foreach (var item in inventoryItems)
+            item.SetClickCallback(clickCallback);
+    }
 
     public bool TryAddIngredient(Ingredient ingredient)
     {
