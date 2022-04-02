@@ -1,36 +1,55 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using Ingredients;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WorkspaceItem : MonoBehaviour
+namespace Workspace
 {
-    [SerializeField] private Image image;
-    [SerializeField] private Button itemButton;
-    private Ingredient _ingredient;
-
-
-    private void Awake()
+    public class WorkspaceItem : MonoBehaviour
     {
-        itemButton.onClick.AddListener(OnClick);
-    }
+        [SerializeField] private Image image;
+        [SerializeField] private Button itemButton;
+
+        public Ingredient Ingredient { get; private set; }
+
+        private Action<WorkspaceItem> _clickCallback;
+
+
+        private void Awake()
+        {
+            itemButton.onClick.AddListener(OnClick);
+            Free();
+        }
         
-    public bool IsEmpty()
-    {
-        return _ingredient == null;
-    }
+        public bool IsEmpty()
+        {
+            return Ingredient == null;
+        }
 
-    public void SetIngredient(Ingredient newIngredient)
-    {
-        _ingredient = newIngredient;
-        image.sprite = newIngredient.Sprite;
-        gameObject.SetActive(true);
-    }
+        public void SetIngredient(Ingredient ingredient)
+        {
+            Ingredient = ingredient;
+            image.sprite = ingredient.Sprite;
+            
+            itemButton.interactable = true;
+        }
 
-    private void OnClick()
-    {
-        Debug.Log("ITEM CLICKED");
+        private void OnClick()
+        {
+            _clickCallback?.Invoke(this);
+        }
+
+        public void SetClickCallback(Action<WorkspaceItem> onItemClicked)
+        {
+            _clickCallback = onItemClicked;
+        }
+
+        public void Free()
+        {
+            Ingredient = null;
+            image.sprite = null;
+            
+            itemButton.interactable = false;
+        }
     }
 }

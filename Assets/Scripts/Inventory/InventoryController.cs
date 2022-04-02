@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Ingredients;
 using UnityEngine;
+using Workspace;
 
 namespace Inventory
 {

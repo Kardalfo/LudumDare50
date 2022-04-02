@@ -1,47 +1,61 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using Ingredients;
 using Inventory;
 using UnityEngine;
 
-public class WorkspaceController : MonoBehaviour
+namespace Workspace
 {
-    [SerializeField] private List<WorkspaceItem> workspaceItems;
-    [SerializeField] private InventoryController inventoryController;
-    
-    
-    public bool TryAddIngredient(Ingredient ingredient)
+    public class WorkspaceController : MonoBehaviour
     {
-        foreach (var item in workspaceItems)
+        [SerializeField] private List<WorkspaceItem> workspaceItems;
+        [SerializeField] private InventoryController inventoryController;
+
+
+        private void Awake()
         {
-            if (item.IsEmpty())
+            foreach (var workspaceItem in workspaceItems)
             {
-                item.SetIngredient(ingredient);
-
-                foreach (var workspaceItem in workspaceItems)
-                {
-                    if (workspaceItem.IsEmpty())
-                    {
-                        inventoryController.SetInteractable(true);
-                        break;
-                    }
-                    
-                    inventoryController.SetInteractable(false);
-                }
-
-                return true;
+                workspaceItem.SetClickCallback(OnItemClicked);
             }
         }
-        return false;
-    }
 
-    public bool HasPlaceForIngredient()
-    {
-        foreach (var item in workspaceItems)
+        public void TryAddIngredient(Ingredient ingredient)
         {
-            if (item.IsEmpty())
-                return true;
+            foreach (var item in workspaceItems)
+            {
+                if (item.IsEmpty())
+                {
+                    item.SetIngredient(ingredient);
+                    inventoryController.SetInteractable(HasPlaceForIngredient());
+                    
+                    return;
+                }
+            }
+            
+            inventoryController.SetInteractable(false);
         }
-        return false;
+
+        private bool HasPlaceForIngredient()
+        {
+            foreach (var item in workspaceItems)
+            {
+                if (item.IsEmpty())
+                    return true;
+            }
+            
+            return false;
+        }
+
+        private void OnItemClicked(WorkspaceItem item)
+        {
+            if (!inventoryController.HasPlaceForIngredient())
+                return;
+            
+            inventoryController.AddIngredient(item.Ingredient);
+            item.Free();
+            
+            inventoryController.SetInteractable(true);
+        }
     }
 }

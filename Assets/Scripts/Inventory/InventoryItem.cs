@@ -10,7 +10,6 @@ namespace Inventory
     public class InventoryItem : MonoBehaviour
     {
         [SerializeField] private Image spriteRenderer;
-        [SerializeField] private TMP_Text itemsAmount;
         [SerializeField] private Button itemButton;
         
         private Ingredient _ingredient;
@@ -37,7 +36,6 @@ namespace Inventory
         {
             _ingredient = newIngredient;
             spriteRenderer.sprite = newIngredient.Sprite;
-            itemsAmount.text = newIngredient.IngredientType.ToString();
             gameObject.SetActive(true);
         }
 

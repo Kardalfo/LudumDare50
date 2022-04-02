@@ -1,47 +1,48 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using Ingredients;
-using Inventory;
 using UnityEngine;
 
-public class ShelfController : MonoBehaviour
+namespace Inventory
 {
-    [SerializeField] private List<InventoryItem> inventoryItems;
-
-
-    public void SetInteractable(bool value)
+    public class ShelfController : MonoBehaviour
     {
-        foreach (var item in inventoryItems)
-            item.SetInteractable(value);
-    }
+        [SerializeField] private List<InventoryItem> inventoryItems;
+
+
+        public void SetInteractable(bool value)
+        {
+            foreach (var item in inventoryItems)
+                item.SetInteractable(value);
+        }
     
-    public void SetClickCallback(Action<Ingredient> clickCallback)
-    {
-        foreach (var item in inventoryItems)
-            item.SetClickCallback(clickCallback);
-    }
-
-    public bool TryAddIngredient(Ingredient ingredient)
-    {
-        foreach (var inventoryItem in inventoryItems)
+        public void SetClickCallback(Action<Ingredient> clickCallback)
         {
-            if (inventoryItem.IsEmpty())
+            foreach (var item in inventoryItems)
+                item.SetClickCallback(clickCallback);
+        }
+
+        public bool TryAddIngredient(Ingredient ingredient)
+        {
+            foreach (var inventoryItem in inventoryItems)
             {
-                inventoryItem.SetIngredient(ingredient);
-                return true;
+                if (inventoryItem.IsEmpty())
+                {
+                    inventoryItem.SetIngredient(ingredient);
+                    return true;
+                }
             }
+            return false;
         }
-        return false;
-    }
 
-    public bool HasPlaceForIngredient()
-    {
-        foreach (var inventoryItem in inventoryItems)
+        public bool HasPlaceForIngredient()
         {
-            if (inventoryItem.IsEmpty())
-                return true;
+            foreach (var inventoryItem in inventoryItems)
+            {
+                if (inventoryItem.IsEmpty())
+                    return true;
+            }
+            return false;
         }
-        return false;
     }
 }
