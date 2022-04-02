@@ -43,4 +43,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13db8b0e2cd9e09459c588a66c9c1933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredients: []
+  ingredients:
+  - ingredientType: 0
+    positive: 
+    negative: 
+    sprite: {fileID: 0}
+    price: 0
+    effect: 0
+  - ingredientType: 1
+    positive: 
+    negative: 
+    sprite: {fileID: 0}
+    price: 0
+    effect: 0
+  - ingredientType: 2
+    positive: 
+    negative: 
+    sprite: {fileID: 0}
+    price: 0
+    effect: 0
+  - ingredientType: 3
+    positive: 
+    negative: 
+    sprite: {fileID: 0}
+    price: 0
+    effect: 0
