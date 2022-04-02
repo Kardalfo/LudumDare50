@@ -151,7 +151,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1429322196583000266
 RectTransform:
   m_ObjectHideFlags: 0
@@ -186,6 +186,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
+  _itemsAmount: {fileID: 2395332722312727397}
+  clickEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!222 &4803810960662647573
 CanvasRenderer:
   m_ObjectHideFlags: 0
