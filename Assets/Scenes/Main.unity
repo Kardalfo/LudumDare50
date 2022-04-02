@@ -477,6 +477,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: WindowsManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1962688681251676117, guid: 92bf361ffbe3cea46bb402979e54999c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962688681251676117, guid: 92bf361ffbe3cea46bb402979e54999c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4175448832104561862, guid: 92bf361ffbe3cea46bb402979e54999c, type: 3}
       propertyPath: ingredientsManager
       value: 

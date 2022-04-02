@@ -9,7 +9,7 @@ public class ShelfController : MonoBehaviour
     [SerializeField] private List<InventoryItem> inventoryItems;
 
 
-    public bool TryAddIngredientToItem(Ingredient ingredient)
+    public bool TryAddIngredient(Ingredient ingredient)
     {
         foreach (var inventoryItem in inventoryItems)
         {
@@ -18,6 +18,16 @@ public class ShelfController : MonoBehaviour
                 inventoryItem.SetIngredient(ingredient);
                 return true;
             }
+        }
+        return false;
+    }
+
+    public bool HasPlaceForIngredient()
+    {
+        foreach (var inventoryItem in inventoryItems)
+        {
+            if (inventoryItem.IsEmpty())
+                return true;
         }
         return false;
     }
