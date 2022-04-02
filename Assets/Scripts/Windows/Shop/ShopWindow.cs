@@ -1,19 +1,21 @@
-using System;
+using System.Collections.Generic;
 using Ingredients;
 using Inventory;
-using TMPro;
+using Resources;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
+
 
 namespace Windows.Shop
 {
     public class ShopWindow : BaseWindow
     {
         [SerializeField] private IngredientsManager ingredientsManager;
+        [SerializeField] private InventoryController inventoryController;
         [SerializeField] private ShopItem shopItemPrefab;
         [SerializeField] private Transform parent;
-        
+
+        private readonly List<ShopItem> _shopItems = new List<ShopItem>();
+
 
         private void Awake()
         {
@@ -22,36 +24,30 @@ namespace Windows.Shop
             {
                 var shopItem = Instantiate(shopItemPrefab, parent);
                 shopItem.SetIngredient(ingredient);
-//                shopItem.SetClickCallback(); TODO: попытка покупки через ресурсный контроллер
+                shopItem.SetClickCallback(BuyIngredient);
+                
+                _shopItems.Add(shopItem);
+            }
+            
+            ResourcesController.AddCoinsAmountListener(OnCoinsAmountChanged);
+        }
+
+        private void BuyIngredient(Ingredient ingredient)
+        {
+            var price = ingredient.Price;
+            //if (inventoryController.HaveFreeSpace)
+            if (ResourcesController.TrySubtract(price))
+            {
+                //inventoryController.AddIngredient();
             }
         }
-    }
 
-    public class ShopItem : MonoBehaviour, IPointerClickHandler
-    {
-        [SerializeField] private Image icon;
-        [SerializeField] private TMP_Text price;
-
-        private Ingredient _ingredient;
-        private Action<Ingredient> _clickCallback;
-        
-
-        public void SetIngredient(Ingredient ingredient)
+        private void OnCoinsAmountChanged(int amount)
         {
-            _ingredient = ingredient;
-
-            icon.sprite = ingredient.Sprite;
-            price.text = ingredient.Price.ToString();
-        }
-
-        public void SetClickCallback(Action<Ingredient> clickCallback)
-        {
-            _clickCallback = clickCallback;
-        }
-
-        public void OnPointerClick(PointerEventData e)
-        {
-            _clickCallback?.Invoke(_ingredient);
+            foreach (var shopItem in _shopItems)
+            {
+                shopItem.CheckCoins(amount);
+            }
         }
     }
 }
