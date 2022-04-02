@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Diseases;
+using Gameplay;
 using Resources;
 using UnityEngine;
 
@@ -13,20 +14,17 @@ namespace Characters
         
         [SerializeField] private CharacterDiseasesController characterDiseasesController;
         [SerializeField] private CharacterView view;
-        [SerializeField] private List<TrySettings> trySettings;
         [SerializeField] private int minPrize;
         [SerializeField] private int prizeMultiplier;
         [SerializeField] private Animation animation;
 
-        private Dictionary<int, TrySettings> _trySettingsById = new Dictionary<int, TrySettings>();
-
+        private int _tutorialPrize;
+        
         private Action _hiddenCallback;
         
 
         private void Awake()
         {
-            foreach (var trySetting in trySettings)
-                _trySettingsById[trySetting.DiseaseAmount] = trySetting;
                 
             characterDiseasesController.SetHealedCallback(OnHealed);
             characterDiseasesController.SetGoHomeCallback(OnGoHome);
@@ -37,13 +35,12 @@ namespace Characters
             _hiddenCallback = callback;
         }
 
-        public void ShowNextDiseased(List<Disease> diseases)
+        public void ShowNextDiseased(CharacterSettings setting)
         {
-            var setting = _trySettingsById[diseases.Count];
-            var triesAmount = setting.GetRandomTriesAmount();
+            _tutorialPrize = setting.tutorialPrize;
             
-            characterDiseasesController.SetTries(triesAmount);
-            characterDiseasesController.SetDiseases(diseases);
+            characterDiseasesController.SetTries(setting.triesAmount);
+            characterDiseasesController.SetDiseases(setting.diseases);
             
             //view.SetDiseases(diseases);
             ShowCharacter();
@@ -67,8 +64,9 @@ namespace Characters
 
         private void OnHealed(int triesCount)
         {
-            var prize = minPrize + triesCount * prizeMultiplier;
-            ResourcesController.AddCoins(prize);
+            ResourcesController.AddCoins(_tutorialPrize == -1 
+                ? minPrize + triesCount * prizeMultiplier
+                : _tutorialPrize);
             
             HideCharacter();
         }
@@ -81,6 +79,11 @@ namespace Characters
         public void OnCharacterHidden()
         {
             _hiddenCallback?.Invoke();
+        }
+
+        public void SetRandomSkin()
+        {
+            //view.SetRandomSkin();
         }
     }
 }
