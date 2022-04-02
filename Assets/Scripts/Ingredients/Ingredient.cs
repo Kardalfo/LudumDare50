@@ -8,5 +8,7 @@ namespace Ingredients
     {
         [SerializeField] private List<DiseaseType> positive;
         [SerializeField] private List<DiseaseType> negative;
+        
+        [SerializeField] private Sprite sprite;
     }
 }
