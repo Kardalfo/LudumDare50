@@ -38,7 +38,7 @@ namespace Inventory
             }
         }
 
-        private bool HasPlaceForIngredient()
+        public bool HasPlaceForIngredient()
         {
             foreach (var shelf in shelves)
             {

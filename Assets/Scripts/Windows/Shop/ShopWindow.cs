@@ -28,17 +28,21 @@ namespace Windows.Shop
                 
                 _shopItems.Add(shopItem);
             }
-            
+
+            OnCoinsAmountChanged(ResourcesController.CoinsAmount);
             ResourcesController.AddCoinsAmountListener(OnCoinsAmountChanged);
         }
 
         private void BuyIngredient(Ingredient ingredient)
         {
+            if (!inventoryController.HasPlaceForIngredient())
+                return;
+            
             var price = ingredient.Price;
-            //if (inventoryController.HaveFreeSpace)
+
             if (ResourcesController.TrySubtract(price))
             {
-                //inventoryController.AddIngredient();
+                inventoryController.AddIngredient(ingredient);
             }
         }
 
