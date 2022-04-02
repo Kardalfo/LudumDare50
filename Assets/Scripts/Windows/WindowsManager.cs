@@ -20,7 +20,6 @@ namespace Windows
             foreach (var window in windows)
             {
                 _windowsByType[window.GetType()] = window;
-                window.gameObject.SetActive(false);
             }
             
             _instance = this;
