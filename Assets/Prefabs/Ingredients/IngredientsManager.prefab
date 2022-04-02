@@ -47,24 +47,24 @@ MonoBehaviour:
   - ingredientType: 0
     positive: 
     negative: 
-    sprite: {fileID: 0}
-    price: 0
+    sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    price: 200
     effect: 0
   - ingredientType: 1
     positive: 
     negative: 
-    sprite: {fileID: 0}
+    sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
     price: 0
     effect: 0
   - ingredientType: 2
     positive: 
     negative: 
-    sprite: {fileID: 0}
+    sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     price: 0
     effect: 0
   - ingredientType: 3
     positive: 
     negative: 
-    sprite: {fileID: 0}
+    sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
     price: 0
     effect: 0
