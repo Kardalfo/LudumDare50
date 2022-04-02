@@ -28,8 +28,12 @@ namespace Inventory
             {
                 var ingredient = ingredientsManager.GetIngredientByType(ingredientType);
                 var ingredientAdded = currentShelf.TryAddIngredientToItem(ingredient);
-                
-                if (ingredientAdded){}
+
+                if (!ingredientAdded)
+                {
+                    currentShelf = shelves.Dequeue();
+                    currentShelf.TryAddIngredientToItem(ingredient);
+                }
             }
         }
 
