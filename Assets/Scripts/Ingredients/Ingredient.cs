@@ -10,5 +10,7 @@ namespace Ingredients
         [SerializeField] private List<DiseaseType> negative;
         
         [SerializeField] private Sprite sprite;
+        [SerializeField] private int price;
+        [SerializeField] private float effect;
     }
 }
