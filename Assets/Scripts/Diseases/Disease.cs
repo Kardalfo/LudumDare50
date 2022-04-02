@@ -8,5 +8,8 @@ namespace Diseases
     {
         [SerializeField] private DiseaseType type;
         [SerializeField] private Sprite sprite;
+        
+        public DiseaseType Type => type;
+        public Sprite Sprite => sprite;
     }
 }
