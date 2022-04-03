@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using Diseases;
 using Resources;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 namespace Characters
 {
     public class CharacterDiseasesController : MonoBehaviour
     {
-        [SerializeField] private List<Image> icons;
+        [SerializeField] private int maxDiseasesAmount = 4;
         [SerializeField] private List<BubbleView> bubbles;
 
         private List<Disease> _diseases;
@@ -35,30 +35,17 @@ namespace Characters
         
         public void SetDiseases(List<Disease> diseases)
         {
+            foreach (var bubble in bubbles)
+                bubble.gameObject.SetActive(false);
+            
             _diseases = diseases;
             
             var diseasesCount = diseases.Count;
 
-            var bubble = bubbles[diseasesCount - 1];
+            var currentBubble = bubbles[diseasesCount - 1];
             
-            bubble.SetIcons(_diseases);
-            bubble.gameObject.SetActive(true);
-            
-            /*var iconsCount = icons.Count;
-            for (int i = 0; i < iconsCount; i++)
-            {
-                var icon = icons[i];
-                if (i >= diseasesCount)
-                {
-                    icon.gameObject.SetActive(false);
-                }
-                else
-                {
-                    var disease = diseases[i];
-                    icon.sprite = disease.Sprite;
-                    icon.gameObject.SetActive(true);
-                }
-            }*/
+            currentBubble.SetIcons(_diseases);
+            currentBubble.gameObject.SetActive(true);
         }
 
         public List<Disease> GiveMedicine(List<Disease> heals, List<Disease> diseases)
@@ -67,13 +54,13 @@ namespace Characters
             foreach (var heal in heals)
                 _diseases.Remove(heal);
 
-            SetDiseases(_diseases);
-            CheckCharacterStatus();
+            if (CheckCharacterStatus())
+                SetDiseases(_diseases);
 
             return _diseases;
         }
 
-        private void CheckCharacterStatus()
+        private bool CheckCharacterStatus()
         {
             var triesCount = ResourcesController.TriesAmount;
             if (_diseases.Count == 0)
@@ -82,13 +69,13 @@ namespace Characters
                     bubble.gameObject.SetActive(false);
                 
                 _healedCallback?.Invoke(triesCount);
-                return;
+                return false;
             }
 
-            if (_diseases.Count > icons.Count)
+            if (_diseases.Count > maxDiseasesAmount)
             {
                 _goHomeCallback?.Invoke();
-                return;
+                return false;
             }
 
             ResourcesController.SubtractTries();
@@ -96,6 +83,8 @@ namespace Characters
             {
                 _goHomeCallback?.Invoke();
             }
+
+            return true;
         }
     }
 }

@@ -45,26 +45,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredients:
   - ingredientType: 0
-    positive: 
-    negative: 
+    positive: 0300000006000000
+    negative: 0100000005000000
     sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
     price: 200
-    effect: 0
   - ingredientType: 1
-    positive: 
-    negative: 
+    positive: 0400000007000000
+    negative: 0300000006000000
     sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
     price: 0
-    effect: 0
   - ingredientType: 2
-    positive: 
-    negative: 
+    positive: 0500000008000000
+    negative: 0400000007000000
     sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     price: 0
-    effect: 0
   - ingredientType: 3
-    positive: 
-    negative: 
+    positive: 0600000009000000
+    negative: 0500000008000000
     sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
     price: 0
-    effect: 0
+  - ingredientType: 4
+    positive: 070000000a000000
+    negative: 0600000009000000
+    sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+    price: 0
+  - ingredientType: 5
+    positive: 0800000002000000
+    negative: 070000000a000000
+    sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+    price: 0
+  - ingredientType: 6
+    positive: 090000000b000000
+    negative: 0800000002000000
+    sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+    price: 0
+  - ingredientType: 7
+    positive: 0a0000000c000000
+    negative: 090000000b000000
+    sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+    price: 0
+  - ingredientType: 8
+    positive: 0200000001000000
+    negative: 0a0000000c000000
+    sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+    price: 0
+  - ingredientType: 9
+    positive: 0300000006000000
+    negative: 0200000001000000
+    sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+    price: 0
+  - ingredientType: 10
+    positive: 0400000007000000
+    negative: 0b00000003000000
+    sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+    price: 0
+  - ingredientType: 11
+    positive: 0500000008000000
+    negative: 0c00000004000000
+    sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+    price: 0

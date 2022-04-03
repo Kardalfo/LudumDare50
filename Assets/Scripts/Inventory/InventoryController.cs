@@ -21,7 +21,7 @@ namespace Inventory
         private bool _interactable;
         
 
-        private void Awake()
+        private void Start()
         {
             _interactable = true;
             
