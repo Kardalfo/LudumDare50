@@ -18,7 +18,7 @@ namespace Windows.Shop
         [SerializeField] private ScrollRect scroll;
 
         private readonly List<ShopItem> _shopItems = new List<ShopItem>();
-
+        
 
         private void Awake()
         {

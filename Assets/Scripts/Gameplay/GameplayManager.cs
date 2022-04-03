@@ -39,16 +39,14 @@ namespace Gameplay
         private void Restart()
         {
             ResourcesController.SetLives(startLivesAmount);
-            workspaceController.FreeAllWorkspaceItems();
+            workspaceController.FreeWorkspaceItems();
             inventoryController.Restart();
         }
         
         private void RestartOnButton()
         {
-            characterDiseasesController.InvokeGoHome();
-            ResourcesController.SetLives(startLivesAmount);
-            workspaceController.FreeAllWorkspaceItems();
-            inventoryController.Restart();
+            Restart();
+            generator.CreateNewCharacter();
         }
     }
 }
