@@ -4,6 +4,8 @@ using Diseases;
 using Gameplay;
 using Resources;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
+using Random = UnityEngine.Random;
 
 namespace Characters
 {
@@ -14,11 +16,13 @@ namespace Characters
 
         [SerializeField] private DiseaseManager diseaseManager;
         [SerializeField] private CharacterDiseasesController characterDiseasesController;
-        [SerializeField] private CharacterView view;
+        [SerializeField] private List<CharacterView> characters;
         [SerializeField] private int minPrize;
         [SerializeField] private int prizeMultiplier;
         [SerializeField] private Animation animation;
 
+        private CharacterView active_character;
+        
         private int _tutorialPrize;
         
         private Action _hiddenCallback;
@@ -26,7 +30,6 @@ namespace Characters
 
         private void Awake()
         {
-                
             characterDiseasesController.SetHealedCallback(OnHealed);
             characterDiseasesController.SetGoHomeCallback(OnGoHome);
         }
@@ -48,7 +51,7 @@ namespace Characters
             characterDiseasesController.SetTries(setting.triesAmount);
             characterDiseasesController.SetDiseases(diseases);
             
-            view.SetDiseases(diseases);
+            active_character.SetDiseases(diseases);
             ShowCharacter();
         }
 
@@ -65,7 +68,7 @@ namespace Characters
         public void GiveMedicine(List<Disease> heals, List<Disease> diseases)
         {
             var newDiseases = characterDiseasesController.GiveMedicine(heals, diseases);
-            view.SetDiseases(newDiseases);
+            active_character.SetDiseases(newDiseases);
         }
 
         private void OnHealed(int triesCount)
@@ -87,9 +90,14 @@ namespace Characters
             _hiddenCallback?.Invoke();
         }
 
-        public void SetRandomSkin()
+        public void SetRandomCharacter()
         {
-            //view.SetRandomSkin();
+            if (active_character != null)
+                active_character.gameObject.SetActive(false);
+            
+            var random = Random.Range(0, characters.Count);
+            active_character = characters[random];
+            active_character.gameObject.SetActive(true);
         }
     }
 }

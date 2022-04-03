@@ -34,7 +34,7 @@ namespace Gameplay
 
         public void CreateNewCharacter()
         {
-            characterController.SetRandomSkin();
+            characterController.SetRandomCharacter();
 
             var settings = GetSettings();
             characterController.ShowNextDiseased(settings);
