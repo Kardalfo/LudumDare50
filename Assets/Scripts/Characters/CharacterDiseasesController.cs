@@ -70,9 +70,6 @@ namespace Characters
             SetDiseases(_diseases);
             CheckCharacterStatus();
 
-            foreach (var bubble in bubbles)
-                bubble.gameObject.SetActive(false);
-
             return _diseases;
         }
 
@@ -81,6 +78,9 @@ namespace Characters
             var triesCount = ResourcesController.TriesAmount;
             if (_diseases.Count == 0)
             {
+                foreach (var bubble in bubbles)
+                    bubble.gameObject.SetActive(false);
+                
                 _healedCallback?.Invoke(triesCount);
                 return;
             }
