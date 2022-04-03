@@ -14,6 +14,7 @@ namespace Characters
     {
         private const string ComeKey = "Come";
         private const string GoKey = "Go";
+        private const string PoofKey = "Poof";
 
         [SerializeField] private DiseaseManager diseaseManager;
         [SerializeField] private CharacterDiseasesController characterDiseasesController;
@@ -65,11 +66,18 @@ namespace Characters
         {
             animation.Play(GoKey);
         }
+        
+        private void PlayPoof()
+        {
+            animation.Play(PoofKey);
+        }
 
         public void GiveMedicine(List<IngredientData> heals, List<IngredientData> diseases)
         {
             var newDiseases = characterDiseasesController.GiveMedicine(heals, diseases);
             activeCharacter.SetDiseases(newDiseases);
+
+            PlayPoof();
         }
 
         private void OnHealed(int triesCount)
