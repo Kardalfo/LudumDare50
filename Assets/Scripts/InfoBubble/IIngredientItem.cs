@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace InfoBubble
 {
-    public class IngredientItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class IngredientItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
         public Ingredient Ingredient { get; protected set; }
 
@@ -17,7 +17,11 @@ namespace InfoBubble
         
         public void OnPointerExit(PointerEventData eventData)
         {
-            
+            WindowsManager.Instance.HideIngredientInfo();
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
             WindowsManager.Instance.HideIngredientInfo();
         }
     }

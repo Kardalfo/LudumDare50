@@ -95,6 +95,8 @@ namespace Workspace
         {
             foreach (var item in workspaceItems)
                 item.Free();
+            
+            inventoryController.SetInteractable(true);
             healButton.interactable = false;
             
             healAnimation.Play();
