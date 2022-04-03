@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
+using Diseases;
 using Ingredients;
 using Inventory;
 using UnityEngine;
+using UnityEngine.UI;
+using CharacterController = Characters.CharacterController;
 
 namespace Workspace
 {
@@ -10,14 +13,20 @@ namespace Workspace
     {
         [SerializeField] private List<WorkspaceItem> workspaceItems;
         [SerializeField] private InventoryController inventoryController;
+        [SerializeField] private CharacterController characterController;
+        [SerializeField] private DiseaseManager diseaseManager;
+        [SerializeField] private Animation healAnimation;
+        [SerializeField] private Button healButton;
 
+        private readonly List<Ingredient> _ingredients = new List<Ingredient>();
+        
 
         private void Awake()
         {
+            healButton.onClick.AddListener(OnHealButton);
+            
             foreach (var workspaceItem in workspaceItems)
-            {
                 workspaceItem.SetClickCallback(OnItemClicked);
-            }
         }
 
         public void TryAddIngredient(Ingredient ingredient)
@@ -26,14 +35,16 @@ namespace Workspace
             {
                 if (item.IsEmpty())
                 {
+                    _ingredients.Add(ingredient);
                     item.SetIngredient(ingredient);
-                    inventoryController.SetInteractable(HasPlaceForIngredient());
+                    
+                    CheckWorkspace(HasPlaceForIngredient());
                     
                     return;
                 }
             }
             
-            inventoryController.SetInteractable(false);
+            CheckWorkspace(false);
         }
 
         private bool HasPlaceForIngredient()
@@ -51,11 +62,39 @@ namespace Workspace
         {
             if (!inventoryController.HasPlaceForIngredient())
                 return;
-            
-            inventoryController.AddIngredient(item.Ingredient);
+
+            var ingredient = item.Ingredient;
+            inventoryController.AddIngredient(ingredient);
+            _ingredients.Remove(ingredient);
             item.Free();
             
+            CheckWorkspace(true);
+        }
+
+        private void CheckWorkspace(bool isInteractable)
+        {
             inventoryController.SetInteractable(true);
+            healButton.interactable = isInteractable;
+        }
+
+        private void OnHealButton()
+        {
+            healAnimation.Play();
+        }
+
+        public void HealAnimationFinished()
+        {
+            var heals = new List<Disease>();
+            var diseases = new List<Disease>();
+            foreach (var ingredient in _ingredients)
+            {
+                foreach (var diseaseType in ingredient.Positive)
+                    heals.Add(diseaseManager.GetDiseaseByType(diseaseType));
+                
+                foreach (var diseaseType in ingredient.Negative)
+                    diseases.Add(diseaseManager.GetDiseaseByType(diseaseType));
+            }
+            characterController.GiveMedicine(heals, diseases);
         }
     }
 }

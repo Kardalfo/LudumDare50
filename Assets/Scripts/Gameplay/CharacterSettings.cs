@@ -7,7 +7,7 @@ namespace Gameplay
     [Serializable]
     public class CharacterSettings
     {
-        public List<Disease> diseases;
+        public List<DiseaseType> diseasesTypes;
         public int triesAmount;
         public int tutorialPrize;
     }

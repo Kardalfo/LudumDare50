@@ -8,7 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1912923296770771408}
+  - component: {fileID: 3589601958619087489}
   - component: {fileID: 4418335209781467137}
   - component: {fileID: 4759352798840743543}
   - component: {fileID: 7932267062423441973}
@@ -19,7 +19,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1912923296770771408
+--- !u!224 &3589601958619087489
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,7 +114,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1912923296770771408}
+  - {fileID: 3589601958619087489}
   m_Father: {fileID: 7428525657132445255}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Content: {fileID: 1912923296770771408}
+  m_Content: {fileID: 3589601958619087489}
   m_Horizontal: 1
   m_Vertical: 0
   m_MovementType: 1
@@ -260,6 +260,10 @@ PrefabInstance:
     - target: {fileID: 415201158310651598, guid: 4a9d7d4bca79f1e4eb087e87c245d366, type: 3}
       propertyPath: m_Name
       value: ShopWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 415201158310651598, guid: 4a9d7d4bca79f1e4eb087e87c245d366, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1331221778562941675, guid: 4a9d7d4bca79f1e4eb087e87c245d366, type: 3}
       propertyPath: m_SizeDelta.x
@@ -400,4 +404,4 @@ MonoBehaviour:
   ingredientsManager: {fileID: 0}
   inventoryController: {fileID: 0}
   shopItemPrefab: {fileID: 5544199666906284901, guid: f341fdf66ae7a89428f4a6d4631d95cf, type: 3}
-  parent: {fileID: 1912923296770771408}
+  parent: {fileID: 3589601958619087489}

@@ -11,7 +11,8 @@ namespace Characters
     {
         private const string ComeKey = "Come";
         private const string GoKey = "Go";
-        
+
+        [SerializeField] private DiseaseManager diseaseManager;
         [SerializeField] private CharacterDiseasesController characterDiseasesController;
         [SerializeField] private CharacterView view;
         [SerializeField] private int minPrize;
@@ -38,9 +39,14 @@ namespace Characters
         public void ShowNextDiseased(CharacterSettings setting)
         {
             _tutorialPrize = setting.tutorialPrize;
-            
+            var diseases = new List<Disease>();
+            foreach (var diseasesType in setting.diseasesTypes)
+            {
+                var disease = diseaseManager.GetDiseaseByType(diseasesType);
+                diseases.Add(disease);
+            }
             characterDiseasesController.SetTries(setting.triesAmount);
-            characterDiseasesController.SetDiseases(setting.diseases);
+            characterDiseasesController.SetDiseases(diseases);
             
             //view.SetDiseases(diseases);
             ShowCharacter();

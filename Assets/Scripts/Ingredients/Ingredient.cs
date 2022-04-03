@@ -14,14 +14,12 @@ namespace Ingredients
         [SerializeField] private List<DiseaseType> negative;
         [SerializeField] private Sprite sprite;
         [SerializeField] private int price;
-        [SerializeField] private float effect;
-        
-        
+
+
         public IngredientType IngredientType => ingredientType;
         public List<DiseaseType> Positive => positive;
         public List<DiseaseType> Negative => negative;
         public Sprite Sprite => sprite;
         public int Price => price;
-        public float Effect => effect;
     }
 }

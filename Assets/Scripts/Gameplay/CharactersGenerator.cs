@@ -59,7 +59,7 @@ namespace Gameplay
             
             var settings = new CharacterSettings
             {
-                diseases = diseases,
+                diseasesTypes = diseases,
                 tutorialPrize = -1,
                 triesAmount = triesAmount,
             };
@@ -67,16 +67,15 @@ namespace Gameplay
             return settings;
         }
 
-        private List<Disease> GetRandomDiseases()
+        private List<DiseaseType> GetRandomDiseases()
         {
             var diseasesAmount = Random.Range(1, maxDiseasesAmount + 1);
-            var diseases = new List<Disease>();
+            var diseases = new List<DiseaseType>();
 
             for (var i = 0; i < diseasesAmount; i++)
             {
                 var diseaseType = (DiseaseType) Random.Range(1, _diseaseTypeAmount + 1);
-                var disease = diseaseManager.GetDiseaseByType(diseaseType);
-                diseases.Add(disease);
+                diseases.Add(diseaseType);
             }
 
             return diseases;

@@ -62,14 +62,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShopWindow
       objectReference: {fileID: 0}
-    - target: {fileID: 1912923296770771408, guid: 3b34184bcf31f0b4cbcb6274731acee0, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1912923296770771408, guid: 3b34184bcf31f0b4cbcb6274731acee0, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6374022638186357233, guid: 3b34184bcf31f0b4cbcb6274731acee0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
