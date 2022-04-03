@@ -12,6 +12,7 @@ namespace Windows.Shop
         [SerializeField] private Button button;
         [SerializeField] private Image icon;
         [SerializeField] private TMP_Text price;
+        [SerializeField] private TMP_Text name;
 
         private Action<Ingredient> _clickCallback;
 
@@ -27,6 +28,7 @@ namespace Windows.Shop
 
             icon.sprite = ingredient.Sprite;
             price.text = ingredient.Price.ToString();
+            name.text = ingredient.IngredientType.ToString();
         }
 
         public void SetClickCallback(Action<Ingredient> clickCallback)

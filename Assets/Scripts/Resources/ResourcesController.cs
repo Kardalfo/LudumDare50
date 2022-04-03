@@ -33,6 +33,12 @@ namespace Resources
             LivesAmount += amount;
             _livesAmountChangedEvent?.Invoke(LivesAmount);
         }
+        
+        public static void SetLives(int amount)
+        {
+            LivesAmount = amount;
+            _livesAmountChangedEvent?.Invoke(LivesAmount);
+        }
 
         public static void SetTries(int amount)
         {

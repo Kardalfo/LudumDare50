@@ -16,7 +16,7 @@ namespace Gameplay
 
         private void Awake()
         {
-            ResourcesController.AddLives(startLivesAmount);
+            ResourcesController.SetLives(startLivesAmount);
             ResourcesController.AddLivesAmountListener(CheckLivesAmount);
         }
         
@@ -29,6 +29,7 @@ namespace Gameplay
         {
             if (amount <= 0)
             {
+                ResourcesController.SetLives(startLivesAmount);
                 inventoryController.SetStartIngredients();
                 workspaceController.FreeAllWorkspaceItems();
             }
