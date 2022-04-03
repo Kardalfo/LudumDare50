@@ -1,9 +1,18 @@
+using System.Collections.Generic;
+using Diseases;
 using UnityEngine;
 
 namespace Characters
 {
     public class CharacterView : MonoBehaviour
     {
-        // TODO: ДАВАЙ, АШООООТ!!!!!
+        [SerializeField] private List<SoreView> soreViews;
+        private Dictionary<DiseaseType, SoreView> _soreViewsByType = new Dictionary<DiseaseType, SoreView>();
+
+        private void Awake()
+        {
+            foreach (var soreView in soreViews)
+                _soreViewsByType[soreView.DiseaseType] = soreView;
+        }
     }
 }
