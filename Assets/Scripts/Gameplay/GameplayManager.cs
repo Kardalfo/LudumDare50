@@ -19,11 +19,6 @@ namespace Gameplay
             ResourcesController.AddLives(startLivesAmount);
             ResourcesController.AddLivesAmountListener(CheckLivesAmount);
         }
-
-        private void Start()
-        {
-            StartGame();
-        }
         
         public void StartGame()
         {
