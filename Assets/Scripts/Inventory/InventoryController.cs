@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Ingredients;
+using Resources;
 using UnityEngine;
 using Workspace;
 
@@ -10,6 +11,7 @@ namespace Inventory
     {
         [SerializeField] private int shelvesCount;
         [SerializeField] private List<IngredientType> ingredientTypes;
+        [SerializeField] private int startCoinsValue;
         [SerializeField] private IngredientsManager ingredientsManager;
         [SerializeField] private ShelfController inventoryShelf;
         [SerializeField] private Transform parentTransform;
@@ -46,6 +48,7 @@ namespace Inventory
                     _shelves[currentShelfIndex].TryAddIngredient(ingredient);
                 }
             }
+            ResourcesController.AddCoins(startCoinsValue);
             
             SetInteractable(_interactable);
         }
