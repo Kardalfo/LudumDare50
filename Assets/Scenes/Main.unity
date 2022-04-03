@@ -562,10 +562,19 @@ MonoBehaviour:
   diseaseManager: {fileID: 950754346081230083}
   maxDiseasesAmount: 3
   tutorialCharacterSettings:
-  - diseasesTypes: 0100000002000000
-    triesAmount: 4
+  - diseasesTypes: 0100000003000000
+    triesAmount: 5
     tutorialPrize: 50
-  trySettings: []
+  trySettings:
+  - diseasesAmount: 1
+    minTries: 5
+    maxTries: 5
+  - diseasesAmount: 2
+    minTries: 6
+    maxTries: 7
+  - diseasesAmount: 3
+    minTries: 8
+    maxTries: 10
   characterController: {fileID: 563352424}
 --- !u!114 &689679816
 MonoBehaviour:
@@ -1120,7 +1129,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6949089000524600761, guid: 153ab4878f183764792f99acb685c7a1, type: 3}
       propertyPath: diseases.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949089000524600761, guid: 153ab4878f183764792f99acb685c7a1, type: 3}
+      propertyPath: diseases.Array.data[0].type
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949089000524600761, guid: 153ab4878f183764792f99acb685c7a1, type: 3}
+      propertyPath: diseases.Array.data[1].type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949089000524600761, guid: 153ab4878f183764792f99acb685c7a1, type: 3}
+      propertyPath: diseases.Array.data[2].type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949089000524600761, guid: 153ab4878f183764792f99acb685c7a1, type: 3}
+      propertyPath: diseases.Array.data[3].type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949089000524600761, guid: 153ab4878f183764792f99acb685c7a1, type: 3}
+      propertyPath: diseases.Array.data[4].type
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949089000524600761, guid: 153ab4878f183764792f99acb685c7a1, type: 3}
+      propertyPath: diseases.Array.data[5].type
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949089000524600761, guid: 153ab4878f183764792f99acb685c7a1, type: 3}
+      propertyPath: diseases.Array.data[6].type
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949089000524600761, guid: 153ab4878f183764792f99acb685c7a1, type: 3}
+      propertyPath: diseases.Array.data[7].type
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949089000524600761, guid: 153ab4878f183764792f99acb685c7a1, type: 3}
+      propertyPath: diseases.Array.data[8].type
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949089000524600761, guid: 153ab4878f183764792f99acb685c7a1, type: 3}
+      propertyPath: diseases.Array.data[9].type
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949089000524600761, guid: 153ab4878f183764792f99acb685c7a1, type: 3}
+      propertyPath: diseases.Array.data[10].type
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949089000524600761, guid: 153ab4878f183764792f99acb685c7a1, type: 3}
+      propertyPath: diseases.Array.data[11].type
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 153ab4878f183764792f99acb685c7a1, type: 3}
