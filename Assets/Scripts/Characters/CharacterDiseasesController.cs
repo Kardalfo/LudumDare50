@@ -99,10 +99,5 @@ namespace Characters
 
             return true;
         }
-
-        public void InvokeGoHome()
-        {
-            _goHomeCallback?.Invoke();
-        }
     }
 }

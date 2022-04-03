@@ -10,7 +10,6 @@ namespace Gameplay
 {
     public class CharactersGenerator : MonoBehaviour
     {
-        [SerializeField] private int maxDiseasesAmount = 4;
         [SerializeField] private int maxRandomDiseaseAmount = 3;
         [SerializeField] private List<CharacterSettings> tutorialCharacterSettings;
         [SerializeField] private List<TrySettings> trySettings;
