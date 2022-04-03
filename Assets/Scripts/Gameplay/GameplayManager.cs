@@ -15,7 +15,6 @@ namespace Gameplay
         [SerializeField] private InventoryController inventoryController;
         [SerializeField] private WorkspaceController workspaceController;
         [SerializeField] private Button restartButton;
-        [SerializeField] private CharacterDiseasesController characterDiseasesController;
 
 
         private void Awake()
@@ -39,16 +38,14 @@ namespace Gameplay
         private void Restart()
         {
             ResourcesController.SetLives(startLivesAmount);
-            workspaceController.FreeAllWorkspaceItems();
+            workspaceController.FreeWorkspaceItems();
             inventoryController.Restart();
         }
         
         private void RestartOnButton()
         {
-            characterDiseasesController.InvokeGoHome();
-            ResourcesController.SetLives(startLivesAmount);
-            workspaceController.FreeAllWorkspaceItems();
-            inventoryController.Restart();
+            Restart();
+            generator.CreateNewCharacter();
         }
     }
 }

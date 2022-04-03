@@ -10,7 +10,6 @@ namespace Gameplay
 {
     public class CharactersGenerator : MonoBehaviour
     {
-        [SerializeField] private int maxDiseasesAmount = 4;
         [SerializeField] private int maxRandomDiseaseAmount = 3;
         [SerializeField] private List<CharacterSettings> tutorialCharacterSettings;
         [SerializeField] private List<TrySettings> trySettings;
@@ -77,6 +76,9 @@ namespace Gameplay
             for (var i = 0; i < diseasesAmount; i++)
             {
                 var diseaseType = (DiseaseType) Random.Range(1, _diseaseTypeAmount + 1);
+                while (diseaseType == DiseaseType.EyesLost)
+                    diseaseType = (DiseaseType) Random.Range(1, _diseaseTypeAmount + 1);
+                
                 diseases.Add(diseaseType);
             }
 
