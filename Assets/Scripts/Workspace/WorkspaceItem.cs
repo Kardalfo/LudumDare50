@@ -1,16 +1,15 @@
 using System;
+using InfoBubble;
 using Ingredients;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Workspace
 {
-    public class WorkspaceItem : MonoBehaviour
+    public class WorkspaceItem : IngredientItem
     {
         [SerializeField] private Image image;
         [SerializeField] private Button itemButton;
-
-        public Ingredient Ingredient { get; private set; }
 
         private Action<WorkspaceItem> _clickCallback;
 
