@@ -1297,6 +1297,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 455c6cfb13ba27e4bae4890dbc8969fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soreViews:
+  - diseaseType: 1
+    turnOnObjects:
+    - {fileID: 3600273514515152344}
+    turnOffObjects: []
+  - diseaseType: 2
+    turnOnObjects: []
+    turnOffObjects: []
+  - diseaseType: 3
+    turnOnObjects:
+    - {fileID: 4539954826545109418}
+    turnOffObjects: []
+  - diseaseType: 4
+    turnOnObjects:
+    - {fileID: 2107735144276627864}
+    turnOffObjects: []
+  - diseaseType: 5
+    turnOnObjects:
+    - {fileID: 3858468667311323834}
+    turnOffObjects: []
+  - diseaseType: 6
+    turnOnObjects:
+    - {fileID: 1459179329736667142}
+    turnOffObjects: []
+  - diseaseType: 7
+    turnOnObjects: []
+    turnOffObjects:
+    - {fileID: 4743196380629655390}
+    - {fileID: 655303126528807940}
+  - diseaseType: 8
+    turnOnObjects: []
+    turnOffObjects: []
+  - diseaseType: 9
+    turnOnObjects: []
+    turnOffObjects: []
+  - diseaseType: 10
+    turnOnObjects: []
+    turnOffObjects: []
+  - diseaseType: 11
+    turnOnObjects: []
+    turnOffObjects: []
+  - diseaseType: 12
+    turnOnObjects: []
+    turnOffObjects:
+    - {fileID: 7133199379449332729}
+    - {fileID: 5652958325943825269}
 --- !u!1 &8352110664680926271
 GameObject:
   m_ObjectHideFlags: 0

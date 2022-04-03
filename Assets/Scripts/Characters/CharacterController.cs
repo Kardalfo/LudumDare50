@@ -48,7 +48,7 @@ namespace Characters
             characterDiseasesController.SetTries(setting.triesAmount);
             characterDiseasesController.SetDiseases(diseases);
             
-            //view.SetDiseases(diseases);
+            view.SetDiseases(diseases);
             ShowCharacter();
         }
 
@@ -65,7 +65,7 @@ namespace Characters
         public void GiveMedicine(List<Disease> heals, List<Disease> diseases)
         {
             var newDiseases = characterDiseasesController.GiveMedicine(heals, diseases);
-            //view.SetDiseases(newDiseases);
+            view.SetDiseases(newDiseases);
         }
 
         private void OnHealed(int triesCount)
