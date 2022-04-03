@@ -40,7 +40,7 @@ namespace Characters
             foreach (var bubble in bubbles)
                 bubble.gameObject.SetActive(false);
             
-            _diseases = diseases;
+            _diseases = new List<Disease>(diseases);
             
             var diseasesCount = diseases.Count;
 

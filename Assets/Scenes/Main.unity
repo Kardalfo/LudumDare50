@@ -436,10 +436,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a643326b86e5c5348931141200da0870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diseaseManager: {fileID: 950754346081230083}
   maxDiseasesAmount: 4
+  maxRandomDiseaseAmount: 3
   tutorialCharacterSettings:
-  - diseasesTypes: 01000000
+  - diseasesTypes: 04000000
     triesAmount: 5
     tutorialPrize: 50
   trySettings:

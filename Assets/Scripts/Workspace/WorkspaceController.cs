@@ -18,7 +18,7 @@ namespace Workspace
         [SerializeField] private Animation healAnimation;
         [SerializeField] private Button healButton;
 
-        private readonly List<Ingredient> _ingredients = new List<Ingredient>();
+        private List<Ingredient> _ingredients = new List<Ingredient>();
         
 
         private void Awake()
@@ -120,6 +120,8 @@ namespace Workspace
                     diseases.Add(ingredientData);
             }
             characterController.GiveMedicine(heals, diseases);
+
+            _ingredients = new List<Ingredient>();
         }
     }
 }
