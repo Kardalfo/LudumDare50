@@ -10,16 +10,22 @@ namespace Ingredients
     public class Ingredient
     {
         [SerializeField] private IngredientType ingredientType;
-        [SerializeField] private List<DiseaseType> positive;
-        [SerializeField] private List<DiseaseType> negative;
+        [SerializeField] private List<IngredientData> positive;
+        [SerializeField] private List<IngredientData> negative;
         [SerializeField] private Sprite sprite;
         [SerializeField] private int price;
 
-
         public IngredientType IngredientType => ingredientType;
-        public List<DiseaseType> Positive => positive;
-        public List<DiseaseType> Negative => negative;
+        public List<IngredientData> Positive => positive;
+        public List<IngredientData> Negative => negative;
         public Sprite Sprite => sprite;
         public int Price => price;
+    }
+
+    [Serializable]
+    public class IngredientData
+    {
+        public DiseaseType diseaseType;
+        public bool known;
     }
 }

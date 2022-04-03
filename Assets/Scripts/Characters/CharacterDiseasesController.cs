@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Diseases;
+using Ingredients;
 using Resources;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace Characters
 {
     public class CharacterDiseasesController : MonoBehaviour
     {
+        [SerializeField] private DiseaseManager diseaseManager;
         [SerializeField] private int maxDiseasesAmount = 4;
         [SerializeField] private List<BubbleView> bubbles;
 
@@ -48,11 +50,22 @@ namespace Characters
             currentBubble.gameObject.SetActive(true);
         }
 
-        public List<Disease> GiveMedicine(List<Disease> heals, List<Disease> diseases)
+        public List<Disease> GiveMedicine(List<IngredientData> healsData, List<IngredientData> diseasesData)
         {
+            var diseases = new List<Disease>();
+            foreach (var ingredientData in diseasesData)
+            {
+                diseases.Add(diseaseManager.GetDiseaseByType(ingredientData.diseaseType));
+                ingredientData.known = true;
+            }
+            
             _diseases.AddRange(diseases);
-            foreach (var heal in heals)
-                _diseases.Remove(heal);
+            foreach (var ingredientData in healsData)
+            {
+                var heal = diseaseManager.GetDiseaseByType(ingredientData.diseaseType);
+                if (_diseases.Remove(heal))
+                    ingredientData.known = true;
+            }
 
             if (CheckCharacterStatus())
                 SetDiseases(_diseases);
