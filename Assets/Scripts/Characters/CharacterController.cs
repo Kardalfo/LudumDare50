@@ -83,6 +83,7 @@ namespace Characters
         private void OnGoHome()
         {
             HideCharacter();
+            ResourcesController.SubtractLives(1);
         }
 
         public void OnCharacterHidden()
