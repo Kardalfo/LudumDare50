@@ -95,6 +95,7 @@ namespace Workspace
         {
             foreach (var item in workspaceItems)
                 item.Free();
+            healButton.interactable = false;
             
             healAnimation.Play();
         }
