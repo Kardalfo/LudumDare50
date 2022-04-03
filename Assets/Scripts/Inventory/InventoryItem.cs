@@ -1,4 +1,5 @@
 using System;
+using InfoBubble;
 using Ingredients;
 using TMPro;
 using UnityEngine;
@@ -7,12 +8,11 @@ using UnityEngine.UI;
 
 namespace Inventory
 {
-    public class InventoryItem : MonoBehaviour
+    public class InventoryItem : IngredientItem
     {
         [SerializeField] private Image spriteRenderer;
         [SerializeField] private Button itemButton;
         
-        private Ingredient _ingredient;
         private Action<Ingredient> _clickCallback;
         private bool _interactable;
 
@@ -29,12 +29,12 @@ namespace Inventory
         
         public bool IsEmpty()
         {
-            return _ingredient == null;
+            return Ingredient == null;
         }
 
         public void SetIngredient(Ingredient newIngredient)
         {
-            _ingredient = newIngredient;
+            Ingredient = newIngredient;
             spriteRenderer.sprite = newIngredient.Sprite;
             gameObject.SetActive(true);
         }
@@ -51,9 +51,9 @@ namespace Inventory
                 return;
             }
             
-            _clickCallback?.Invoke(_ingredient);
+            _clickCallback?.Invoke(Ingredient);
             
-            _ingredient = null;
+            Ingredient = null;
             gameObject.SetActive(false);
         }
     }

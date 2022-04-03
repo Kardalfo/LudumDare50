@@ -15,7 +15,7 @@ namespace Inventory
         [SerializeField] private Transform parentTransform;
         [SerializeField] private WorkspaceController workspaceController;
 
-        private List<ShelfController> shelves = new List<ShelfController>();
+        private readonly List<ShelfController> _shelves = new List<ShelfController>();
         private bool _interactable;
         
 
@@ -27,7 +27,7 @@ namespace Inventory
             {
                 var shelf = Instantiate(inventoryShelf, parentTransform);
                 shelf.SetClickCallback(OnItemClick);
-                shelves.Add(shelf);
+                _shelves.Add(shelf);
             }
 
             var currentShelfIndex = 0;
@@ -38,12 +38,12 @@ namespace Inventory
                 if (ingredient == null)
                     continue;
                 
-                var ingredientAdded = shelves[currentShelfIndex].TryAddIngredient(ingredient);
+                var ingredientAdded = _shelves[currentShelfIndex].TryAddIngredient(ingredient);
 
                 if (!ingredientAdded)
                 {
                     currentShelfIndex++;
-                    shelves[currentShelfIndex].TryAddIngredient(ingredient);
+                    _shelves[currentShelfIndex].TryAddIngredient(ingredient);
                 }
             }
             
@@ -59,13 +59,13 @@ namespace Inventory
         {
             _interactable = value;
             
-            foreach (var shelf in shelves)
+            foreach (var shelf in _shelves)
                 shelf.SetInteractable(value);
         }
 
         public bool HasPlaceForIngredient()
         {
-            foreach (var shelf in shelves)
+            foreach (var shelf in _shelves)
             {
                 var hasPlaceForIngredient = shelf.HasPlaceForIngredient();
                 if (hasPlaceForIngredient)
@@ -77,7 +77,7 @@ namespace Inventory
 
         public void AddIngredient(Ingredient ingredient)
         {
-            foreach (var shelf in shelves)
+            foreach (var shelf in _shelves)
             {
                 shelf.SetInteractable(_interactable);
                 

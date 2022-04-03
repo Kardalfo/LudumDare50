@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Ingredients;
 using UnityEngine;
 
 namespace Windows
@@ -11,6 +12,7 @@ namespace Windows
         
         
         [SerializeField] private List<BaseWindow> windows;
+        [SerializeField] private InfoBubble.InfoBubble infoBubble;
 
         private Dictionary<Type, BaseWindow> _windowsByType = new Dictionary<Type, BaseWindow>();
 
@@ -36,6 +38,18 @@ namespace Windows
         {
             var window = _windowsByType[typeof(T)];
             window.gameObject.SetActive(false);
+        }
+
+        public void ShopIngredientInfo(Ingredient ingredient, Vector3 position)
+        {
+            infoBubble.SetPosition(position);
+            infoBubble.SetIngredient(ingredient);
+            infoBubble.gameObject.SetActive(true);
+        }
+
+        public void HideIngredientInfo()
+        {
+            infoBubble.gameObject.SetActive(false);
         }
     }
 }
