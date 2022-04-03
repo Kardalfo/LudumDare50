@@ -1,4 +1,5 @@
 using System;
+using InfoBubble;
 using Ingredients;
 using TMPro;
 using UnityEngine;
@@ -6,13 +7,12 @@ using UnityEngine.UI;
 
 namespace Windows.Shop
 {
-    public class ShopItem : MonoBehaviour
+    public class ShopItem : IngredientItem
     {
         [SerializeField] private Button button;
         [SerializeField] private Image icon;
         [SerializeField] private TMP_Text price;
 
-        private Ingredient _ingredient;
         private Action<Ingredient> _clickCallback;
 
 
@@ -23,7 +23,7 @@ namespace Windows.Shop
 
         public void SetIngredient(Ingredient ingredient)
         {
-            _ingredient = ingredient;
+            Ingredient = ingredient;
 
             icon.sprite = ingredient.Sprite;
             price.text = ingredient.Price.ToString();
@@ -36,12 +36,12 @@ namespace Windows.Shop
 
         private void OnPointerClick()
         {
-            _clickCallback?.Invoke(_ingredient);
+            _clickCallback?.Invoke(Ingredient);
         }
 
         public void CheckCoins(int amount)
         {
-            var isAvailable = _ingredient.Price <= amount;
+            var isAvailable = Ingredient.Price <= amount;
             
             button.interactable = isAvailable;
             icon.color = isAvailable ? Color.white : Color.gray;

@@ -7,9 +7,9 @@ namespace InfoBubble
 {
     public class IngredientItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        protected Ingredient Ingredient;
-        
-        
+        public Ingredient Ingredient { get; protected set; }
+
+
         public void OnPointerEnter(PointerEventData eventData)
         {
             WindowsManager.Instance.ShopIngredientInfo(Ingredient, Input.mousePosition);
