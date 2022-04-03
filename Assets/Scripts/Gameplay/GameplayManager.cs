@@ -15,7 +15,6 @@ namespace Gameplay
         [SerializeField] private InventoryController inventoryController;
         [SerializeField] private WorkspaceController workspaceController;
         [SerializeField] private Button restartButton;
-        [SerializeField] private CharacterDiseasesController characterDiseasesController;
 
 
         private void Awake()
