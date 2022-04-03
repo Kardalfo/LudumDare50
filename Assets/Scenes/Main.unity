@@ -562,10 +562,19 @@ MonoBehaviour:
   diseaseManager: {fileID: 950754346081230083}
   maxDiseasesAmount: 3
   tutorialCharacterSettings:
-  - diseasesTypes: 0100000002000000
-    triesAmount: 4
+  - diseasesTypes: 0100000003000000
+    triesAmount: 5
     tutorialPrize: 50
-  trySettings: []
+  trySettings:
+  - diseasesAmount: 1
+    minTries: 5
+    maxTries: 5
+  - diseasesAmount: 2
+    minTries: 6
+    maxTries: 7
+  - diseasesAmount: 3
+    minTries: 8
+    maxTries: 10
   characterController: {fileID: 563352424}
 --- !u!114 &689679816
 MonoBehaviour:
