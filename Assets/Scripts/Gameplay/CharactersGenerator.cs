@@ -37,7 +37,7 @@ namespace Gameplay
             characterController.SetRandomCharacter();
 
             var settings = GetSettings();
-            characterController.ShowNextDiseased(settings);
+            characterController.ShowNextCharacter(settings);
         }
 
         private CharacterSettings GetSettings()

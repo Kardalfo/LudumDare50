@@ -32,6 +32,13 @@ namespace Inventory
                 _shelves.Add(shelf);
             }
 
+            SetStartIngredients();
+            
+            SetInteractable(_interactable);
+        }
+
+        public void SetStartIngredients()
+        {
             var currentShelfIndex = 0;
             foreach (var ingredientType in ingredientTypes)
             {
@@ -48,9 +55,7 @@ namespace Inventory
                     _shelves[currentShelfIndex].TryAddIngredient(ingredient);
                 }
             }
-            ResourcesController.AddCoins(startCoinsValue);
-            
-            SetInteractable(_interactable);
+            ResourcesController.SetCoins(startCoinsValue);
         }
 
         private void OnItemClick(Ingredient ingredient)

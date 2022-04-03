@@ -93,13 +93,18 @@ namespace Workspace
 
         private void OnHealButton()
         {
-            foreach (var item in workspaceItems)
-                item.Free();
+            FreeAllWorkspaceItems();
             
             inventoryController.SetInteractable(true);
             healButton.interactable = false;
             
             healAnimation.Play();
+        }
+
+        public void FreeAllWorkspaceItems()
+        {
+            foreach (var item in workspaceItems)
+                item.Free();
         }
 
         public void HealAnimationFinished()

@@ -22,6 +22,12 @@ namespace Resources
             _coinsAmountChangedEvent?.Invoke(CoinsAmount);
         }
         
+        public static void SetCoins(int amount)
+        {
+            CoinsAmount = amount;
+            _coinsAmountChangedEvent?.Invoke(CoinsAmount);
+        }
+        
         public static void AddLives(int amount)
         {
             LivesAmount += amount;

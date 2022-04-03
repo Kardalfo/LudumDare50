@@ -1,18 +1,22 @@
 using System;
+using Inventory;
 using Resources;
 using UnityEngine;
+using Workspace;
 
 namespace Gameplay
 {
     public class GameplayManager : MonoBehaviour
     {
         [SerializeField] private CharactersGenerator generator;
-        [SerializeField] private int start_lives_amount;
+        [SerializeField] private int startLivesAmount;
+        [SerializeField] private InventoryController inventoryController;
+        [SerializeField] private WorkspaceController workspaceController;
 
 
         private void Awake()
         {
-            ResourcesController.AddLives(start_lives_amount);
+            ResourcesController.AddLives(startLivesAmount);
             ResourcesController.AddLivesAmountListener(CheckLivesAmount);
         }
 
@@ -30,7 +34,8 @@ namespace Gameplay
         {
             if (amount <= 0)
             {
-                Debug.Log("Game Ended");
+                inventoryController.SetStartIngredients();
+                workspaceController.FreeAllWorkspaceItems();
             }
         }
     }

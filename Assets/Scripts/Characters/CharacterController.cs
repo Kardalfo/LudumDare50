@@ -22,7 +22,7 @@ namespace Characters
         [SerializeField] private int prizeMultiplier;
         [SerializeField] private Animation animation;
 
-        private CharacterView active_character;
+        private CharacterView activeCharacter;
         
         private int _tutorialPrize;
         
@@ -40,7 +40,7 @@ namespace Characters
             _hiddenCallback = callback;
         }
 
-        public void ShowNextDiseased(CharacterSettings setting)
+        public void ShowNextCharacter(CharacterSettings setting)
         {
             _tutorialPrize = setting.tutorialPrize;
             var diseases = new List<Disease>();
@@ -52,7 +52,7 @@ namespace Characters
             characterDiseasesController.SetTries(setting.triesAmount);
             characterDiseasesController.SetDiseases(diseases);
             
-            active_character.SetDiseases(diseases);
+            activeCharacter.SetDiseases(diseases);
             ShowCharacter();
         }
 
@@ -69,7 +69,7 @@ namespace Characters
         public void GiveMedicine(List<IngredientData> heals, List<IngredientData> diseases)
         {
             var newDiseases = characterDiseasesController.GiveMedicine(heals, diseases);
-            active_character.SetDiseases(newDiseases);
+            activeCharacter.SetDiseases(newDiseases);
         }
 
         private void OnHealed(int triesCount)
@@ -94,12 +94,12 @@ namespace Characters
 
         public void SetRandomCharacter()
         {
-            if (active_character != null)
-                active_character.gameObject.SetActive(false);
+            if (activeCharacter != null)
+                activeCharacter.gameObject.SetActive(false);
             
             var random = Random.Range(0, characters.Count);
-            active_character = characters[random];
-            active_character.gameObject.SetActive(true);
+            activeCharacter = characters[random];
+            activeCharacter.gameObject.SetActive(true);
         }
     }
 }
