@@ -20,6 +20,8 @@ namespace Windows
 
         private void Awake()
         {
+            _instance = this;
+            
             foreach (var window in windows)
             {
                 _windowsByType[window.GetType()] = window;
@@ -27,8 +29,6 @@ namespace Windows
             }
             
             startWindow.SetActive(true);
-            
-            _instance = this;
         }
 
         public void Open<T>() where T : BaseWindow

@@ -12,7 +12,12 @@ namespace Windows.Start
 
         private void Awake()
         {
-            startButton.onClick.AddListener(gameplayManager.StartGame);
+            startButton.onClick.AddListener(OnStartButton);
+        }
+
+        private void OnStartButton()
+        {
+            gameplayManager.StartGame();
             WindowsManager.Instance.Close<StartWindow>();
         }
     }
