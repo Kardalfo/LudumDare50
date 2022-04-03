@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class CoinsView : MonoBehaviour
+namespace Resources
 {
-    // Start is called before the first frame update
-    void Start()
+    public class CoinsView : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private TMP_Text amount;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+        private void Awake()
+        {
+            SetAmount(ResourcesController.CoinsAmount);
+            ResourcesController.AddCoinsAmountListener(SetAmount);
+        }
+
+        private void SetAmount(int coinsAmount)
+        {
+            amount.text = coinsAmount.ToString();
+        }
     }
 }
