@@ -19,7 +19,7 @@ namespace Resources
 
         private void OnTriesChanged(int current, int max)
         {
-            fill.fillAmount = max / (float) current;
+            fill.fillAmount = current / (float) max;
             amount.text = $"{current}/{max}";
         }
     }

@@ -28,6 +28,8 @@ namespace Workspace
         public void SetIngredient(Ingredient ingredient)
         {
             Ingredient = ingredient;
+
+            image.enabled = true;
             image.sprite = ingredient.Sprite;
             
             itemButton.interactable = true;
@@ -46,6 +48,8 @@ namespace Workspace
         public void Free()
         {
             Ingredient = null;
+            
+            image.enabled = false;
             image.sprite = null;
             
             itemButton.interactable = false;

@@ -24,6 +24,8 @@ namespace Resources
         {
             TriesAmount = amount;
             MaxTriesAmount = amount;
+            
+            _triesAmountChangedEvent?.Invoke(TriesAmount, MaxTriesAmount);
         }
 
         public static bool TrySubtractCoins(int amount)

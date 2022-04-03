@@ -27,6 +27,8 @@ namespace Workspace
             
             foreach (var workspaceItem in workspaceItems)
                 workspaceItem.SetClickCallback(OnItemClicked);
+
+            SetWorkspaceAvailability(true);
         }
 
         public void TryAddIngredient(Ingredient ingredient)
@@ -38,13 +40,13 @@ namespace Workspace
                     _ingredients.Add(ingredient);
                     item.SetIngredient(ingredient);
                     
-                    CheckWorkspace(HasPlaceForIngredient());
+                    SetWorkspaceAvailability(HasPlaceForIngredient());
                     
                     return;
                 }
             }
             
-            CheckWorkspace(false);
+            SetWorkspaceAvailability(false);
         }
 
         private bool HasPlaceForIngredient()
@@ -58,6 +60,18 @@ namespace Workspace
             return false;
         }
 
+        private bool IsWorkplaceEmpty()
+        {
+            var count = workspaceItems.Count;
+            foreach (var item in workspaceItems)
+            {
+                if (item.IsEmpty())
+                    count -= 1;
+            }
+            
+            return count == 0;
+        }
+
         private void OnItemClicked(WorkspaceItem item)
         {
             if (!inventoryController.HasPlaceForIngredient())
@@ -68,13 +82,13 @@ namespace Workspace
             _ingredients.Remove(ingredient);
             item.Free();
             
-            CheckWorkspace(true);
+            SetWorkspaceAvailability(true);
         }
 
-        private void CheckWorkspace(bool isInteractable)
+        private void SetWorkspaceAvailability(bool isInteractable)
         {
-            inventoryController.SetInteractable(true);
-            healButton.interactable = isInteractable;
+            inventoryController.SetInteractable(isInteractable);
+            healButton.interactable = !IsWorkplaceEmpty();
         }
 
         private void OnHealButton()

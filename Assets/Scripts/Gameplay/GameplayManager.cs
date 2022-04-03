@@ -7,6 +7,11 @@ namespace Gameplay
         [SerializeField] private CharactersGenerator generator;
 
 
+        private void Start()
+        {
+            StartGame();
+        }
+        
         public void StartGame()
         {
             generator.CreateNewCharacter();

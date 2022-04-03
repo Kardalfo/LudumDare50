@@ -77,6 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shelvesCount: 4
   ingredientTypes: 00000000010000000200000003000000
+  startCoinsValue: 0
   ingredientsManager: {fileID: 5539812298945749677, guid: 3a0342a1f48dfb340bb17f924608bbd4, type: 3}
   inventoryShelf: {fileID: 6048428390858798281, guid: 12e635879de61624db6203dcd8c1b2ac, type: 3}
   parentTransform: {fileID: 9195266154434113177}
