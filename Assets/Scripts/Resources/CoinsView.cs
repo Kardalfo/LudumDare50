@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 
+
 namespace Resources
 {
     public class CoinsView : MonoBehaviour
