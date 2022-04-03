@@ -15,6 +15,12 @@ namespace Inventory
             foreach (var item in inventoryItems)
                 item.SetInteractable(value);
         }
+        
+        public void FreeAllItems()
+        {
+            foreach (var item in inventoryItems)
+                item.Free();
+        }
     
         public void SetClickCallback(Action<Ingredient> clickCallback)
         {

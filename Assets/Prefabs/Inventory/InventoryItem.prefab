@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68f1c096d401db641985414827587d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 4125910969125305008}
+  image: {fileID: 4125910969125305008}
   itemButton: {fileID: 8212656648778046620}
   name: {fileID: 4769663012726381369}
 --- !u!222 &4803810960662647573

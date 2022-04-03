@@ -58,6 +58,14 @@ namespace Inventory
             ResourcesController.SetCoins(startCoinsValue);
         }
 
+        public void Restart()
+        {
+            foreach (var shelf in _shelves)
+                shelf.FreeAllItems();
+
+            SetStartIngredients();
+        }
+
         private void OnItemClick(Ingredient ingredient)
         {
             workspaceController.TryAddIngredient(ingredient);

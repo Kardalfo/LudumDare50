@@ -10,7 +10,7 @@ namespace Inventory
 {
     public class InventoryItem : IngredientItem
     {
-        [SerializeField] private Image spriteRenderer;
+        [SerializeField] private Image image;
         [SerializeField] private Button itemButton;
         [SerializeField] private TMP_Text name;
         
@@ -32,11 +32,21 @@ namespace Inventory
         {
             return Ingredient == null;
         }
+        
+        public void Free()
+        {
+            Ingredient = null;
+            
+            image.sprite = null;
+            name.text = null;
+            _interactable = true;
+            gameObject.SetActive(false);
+        }
 
         public void SetIngredient(Ingredient newIngredient)
         {
             Ingredient = newIngredient;
-            spriteRenderer.sprite = newIngredient.Sprite;
+            image.sprite = newIngredient.Sprite;
             name.text = newIngredient.IngredientType.ToString();
             gameObject.SetActive(true);
         }

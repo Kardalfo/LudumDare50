@@ -1,7 +1,9 @@
 using System;
+using Characters;
 using Inventory;
 using Resources;
 using UnityEngine;
+using UnityEngine.UI;
 using Workspace;
 
 namespace Gameplay
@@ -12,12 +14,15 @@ namespace Gameplay
         [SerializeField] private int startLivesAmount;
         [SerializeField] private InventoryController inventoryController;
         [SerializeField] private WorkspaceController workspaceController;
+        [SerializeField] private Button restartButton;
+        [SerializeField] private CharacterDiseasesController characterDiseasesController;
 
 
         private void Awake()
         {
             ResourcesController.SetLives(startLivesAmount);
             ResourcesController.AddLivesAmountListener(CheckLivesAmount);
+            restartButton.onClick.AddListener(Restart);
         }
         
         public void StartGame()
@@ -28,11 +33,15 @@ namespace Gameplay
         private void CheckLivesAmount(int amount)
         {
             if (amount <= 0)
-            {
-                ResourcesController.SetLives(startLivesAmount);
-                inventoryController.SetStartIngredients();
-                workspaceController.FreeAllWorkspaceItems();
-            }
+                Restart();
+        }
+
+        private void Restart()
+        {
+            characterDiseasesController.InvokeGoHome();
+            ResourcesController.SetLives(startLivesAmount);
+            workspaceController.FreeAllWorkspaceItems();
+            inventoryController.Restart();
         }
     }
 }
