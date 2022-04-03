@@ -56,7 +56,7 @@ namespace Gameplay
         private CharacterSettings GenerateSettings()
         {
             var diseases = GetRandomDiseases();
-            var setting = _trySettingsById[diseases.Count];
+            var setting = _trySettingsById[diseases.Count - 1];
             var triesAmount = setting.GetRandomTriesAmount();
             
             var settings = new CharacterSettings

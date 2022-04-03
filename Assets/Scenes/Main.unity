@@ -437,9 +437,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   diseaseManager: {fileID: 950754346081230083}
-  maxDiseasesAmount: 3
+  maxDiseasesAmount: 4
   tutorialCharacterSettings:
-  - diseasesTypes: 0100000003000000
+  - diseasesTypes: 01000000
     triesAmount: 5
     tutorialPrize: 50
   trySettings:

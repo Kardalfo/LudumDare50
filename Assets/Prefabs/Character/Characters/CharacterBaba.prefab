@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 26407741957062248, guid: e17fdcf63f8b38844bf81bfba4810907, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2384464645844568030, guid: e17fdcf63f8b38844bf81bfba4810907, type: 3}
       propertyPath: soreViews.Array.data[11].turnOffObjects.Array.size
