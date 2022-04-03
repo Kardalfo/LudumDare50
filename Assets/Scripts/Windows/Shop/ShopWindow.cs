@@ -40,7 +40,7 @@ namespace Windows.Shop
             
             var price = ingredient.Price;
 
-            if (ResourcesController.TrySubtract(price))
+            if (ResourcesController.TrySubtractCoins(price))
             {
                 inventoryController.AddIngredient(ingredient);
             }

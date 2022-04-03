@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Diseases;
+using Resources;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,8 +12,6 @@ namespace Characters
         [SerializeField] private List<Image> icons;
 
         private List<Disease> _diseases;
-
-        private int _triesCount;
 
         private Action<int> _healedCallback;
         private Action _goHomeCallback;
@@ -30,7 +29,7 @@ namespace Characters
 
         public void SetTries(int tries)
         {
-            _triesCount = tries;
+            ResourcesController.SetTries(tries);
         }
         
         public void SetDiseases(List<Disease> diseases)
@@ -69,9 +68,10 @@ namespace Characters
 
         private void CheckCharacterStatus()
         {
+            var triesCount = ResourcesController.TriesAmount;
             if (_diseases.Count == 0)
             {
-                _healedCallback?.Invoke(_triesCount);
+                _healedCallback?.Invoke(triesCount);
                 return;
             }
 
@@ -81,8 +81,8 @@ namespace Characters
                 return;
             }
 
-            _triesCount -= 1;
-            if (_triesCount <= 0)
+            ResourcesController.SubtractTries();
+            if (ResourcesController.TriesAmount <= 0)
             {
                 _goHomeCallback?.Invoke();
             }

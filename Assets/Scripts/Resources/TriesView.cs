@@ -1,18 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class TriesView : MonoBehaviour
+
+namespace Resources
 {
-    // Start is called before the first frame update
-    void Start()
+    public class TriesView : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private Image fill;
+        [SerializeField] private TMP_Text amount;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+        private void Awake()
+        {
+            ResourcesController.AddTriesAmountListener(OnTriesChanged);
+            OnTriesChanged(ResourcesController.TriesAmount, ResourcesController.MaxTriesAmount);
+        }
+
+        private void OnTriesChanged(int current, int max)
+        {
+            fill.fillAmount = max / (float) current;
+            amount.text = $"{current}/{max}";
+        }
     }
 }
