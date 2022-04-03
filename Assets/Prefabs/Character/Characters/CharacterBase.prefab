@@ -1341,7 +1341,6 @@ MonoBehaviour:
   - diseaseType: 12
     turnOnObjects: []
     turnOffObjects:
-    - {fileID: 7133199379449332729}
     - {fileID: 5652958325943825269}
 --- !u!1 &8352110664680926271
 GameObject:
