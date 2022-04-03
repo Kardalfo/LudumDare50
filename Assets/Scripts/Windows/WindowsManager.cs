@@ -12,9 +12,10 @@ namespace Windows
         
         
         [SerializeField] private List<BaseWindow> windows;
+        [SerializeField] private GameObject startWindow;
         [SerializeField] private InfoBubble.InfoBubble infoBubble;
 
-        private Dictionary<Type, BaseWindow> _windowsByType = new Dictionary<Type, BaseWindow>();
+        private readonly Dictionary<Type, BaseWindow> _windowsByType = new Dictionary<Type, BaseWindow>();
 
 
         private void Awake()
@@ -24,6 +25,8 @@ namespace Windows
                 _windowsByType[window.GetType()] = window;
                 window.gameObject.SetActive(false);
             }
+            
+            startWindow.SetActive(true);
             
             _instance = this;
         }
