@@ -12,6 +12,7 @@ namespace InfoBubble
         [SerializeField] private RectTransform rectTransform;
         [SerializeField] private List<Image> healImages;
         [SerializeField] private List<Image> diseaseImages;
+        [SerializeField] private Sprite questionMark;
 
 
         public void SetIngredient(Ingredient ingredient)
@@ -25,9 +26,17 @@ namespace InfoBubble
                     continue;
                 }
                 healImages[i].gameObject.SetActive(true);
-                
-                var disease = diseaseManager.GetDiseaseByType(healTypes[i]);
-                healImages[i].sprite = disease.Sprite;
+
+                var ingredientData = healTypes[i];
+                if (ingredientData.known)
+                {
+                    var disease = diseaseManager.GetDiseaseByType(ingredientData.diseaseType);
+                    healImages[i].sprite = disease.Sprite;
+                }
+                else
+                {
+                    healImages[i].sprite = questionMark;
+                }
             }
             
             var diseaseTypes = ingredient.Negative;
@@ -40,8 +49,16 @@ namespace InfoBubble
                 }
                 diseaseImages[i].gameObject.SetActive(true);
                 
-                var disease = diseaseManager.GetDiseaseByType(diseaseTypes[i]);
-                diseaseImages[i].sprite = disease.Sprite;
+                var ingredientData = diseaseTypes[i];
+                if (ingredientData.known)
+                {
+                    var disease = diseaseManager.GetDiseaseByType(ingredientData.diseaseType);
+                    diseaseImages[i].sprite = disease.Sprite;
+                }
+                else
+                {
+                    diseaseImages[i].sprite = questionMark;
+                }
             }
         }
 

@@ -9,7 +9,7 @@ namespace Ingredients
     {
         [SerializeField] private List<Ingredient> ingredients;
 
-        
+
         public List<Ingredient> Ingredients => ingredients;
 
         public Ingredient GetIngredientByType(IngredientType ingredientType)

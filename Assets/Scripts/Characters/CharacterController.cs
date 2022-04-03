@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Diseases;
 using Gameplay;
+using Ingredients;
 using Resources;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
@@ -65,7 +66,7 @@ namespace Characters
             animation.Play(GoKey);
         }
 
-        public void GiveMedicine(List<Disease> heals, List<Disease> diseases)
+        public void GiveMedicine(List<IngredientData> heals, List<IngredientData> diseases)
         {
             var newDiseases = characterDiseasesController.GiveMedicine(heals, diseases);
             active_character.SetDiseases(newDiseases);

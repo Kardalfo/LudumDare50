@@ -104,15 +104,15 @@ namespace Workspace
 
         public void HealAnimationFinished()
         {
-            var heals = new List<Disease>();
-            var diseases = new List<Disease>();
+            var heals = new List<IngredientData>();
+            var diseases = new List<IngredientData>();
             foreach (var ingredient in _ingredients)
             {
-                foreach (var diseaseType in ingredient.Positive)
-                    heals.Add(diseaseManager.GetDiseaseByType(diseaseType));
-                
-                foreach (var diseaseType in ingredient.Negative)
-                    diseases.Add(diseaseManager.GetDiseaseByType(diseaseType));
+                foreach (var ingredientData in ingredient.Positive)
+                    heals.Add(ingredientData);
+
+                foreach (var ingredientData in ingredient.Negative)
+                    diseases.Add(ingredientData);
             }
             characterController.GiveMedicine(heals, diseases);
         }
