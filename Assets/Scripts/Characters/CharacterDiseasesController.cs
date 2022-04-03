@@ -10,6 +10,7 @@ namespace Characters
     public class CharacterDiseasesController : MonoBehaviour
     {
         [SerializeField] private List<Image> icons;
+        [SerializeField] private List<BubbleView> bubbles;
 
         private List<Disease> _diseases;
 
@@ -37,7 +38,13 @@ namespace Characters
             _diseases = diseases;
             
             var diseasesCount = diseases.Count;
-            var iconsCount = icons.Count;
+
+            var bubble = bubbles[diseasesCount - 1];
+            
+            bubble.SetIcons(_diseases);
+            bubble.gameObject.SetActive(true);
+            
+            /*var iconsCount = icons.Count;
             for (int i = 0; i < iconsCount; i++)
             {
                 var icon = icons[i];
@@ -51,7 +58,7 @@ namespace Characters
                     icon.sprite = disease.Sprite;
                     icon.gameObject.SetActive(true);
                 }
-            }
+            }*/
         }
 
         public List<Disease> GiveMedicine(List<Disease> heals, List<Disease> diseases)
@@ -62,6 +69,9 @@ namespace Characters
 
             SetDiseases(_diseases);
             CheckCharacterStatus();
+
+            foreach (var bubble in bubbles)
+                bubble.gameObject.SetActive(false);
 
             return _diseases;
         }
