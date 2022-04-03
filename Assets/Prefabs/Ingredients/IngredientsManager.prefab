@@ -45,62 +45,134 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredients:
   - ingredientType: 0
-    positive: 0300000006000000
-    negative: 0100000005000000
+    positive:
+    - diseaseType: 3
+      known: 1
+    - diseaseType: 6
+      known: 0
+    negative:
+    - diseaseType: 1
+      known: 0
     sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-    price: 200
+    price: 5
   - ingredientType: 1
-    positive: 0400000007000000
-    negative: 0300000006000000
+    positive:
+    - diseaseType: 4
+      known: 1
+    - diseaseType: 7
+      known: 0
+    negative:
+    - diseaseType: 3
+      known: 0
     sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-    price: 0
+    price: 5
   - ingredientType: 2
-    positive: 0500000008000000
-    negative: 0400000007000000
+    positive:
+    - diseaseType: 5
+      known: 1
+    - diseaseType: 8
+      known: 0
+    negative:
+    - diseaseType: 4
+      known: 0
     sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-    price: 0
+    price: 5
   - ingredientType: 3
-    positive: 0600000009000000
-    negative: 0500000008000000
+    positive:
+    - diseaseType: 6
+      known: 1
+    - diseaseType: 9
+      known: 0
+    negative:
+    - diseaseType: 5
+      known: 0
     sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-    price: 0
+    price: 5
   - ingredientType: 4
-    positive: 070000000a000000
-    negative: 0600000009000000
+    positive:
+    - diseaseType: 7
+      known: 1
+    - diseaseType: 10
+      known: 0
+    negative:
+    - diseaseType: 6
+      known: 0
     sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-    price: 0
+    price: 5
   - ingredientType: 5
-    positive: 0800000002000000
-    negative: 070000000a000000
+    positive:
+    - diseaseType: 8
+      known: 1
+    - diseaseType: 2
+      known: 0
+    negative:
+    - diseaseType: 7
+      known: 0
     sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-    price: 0
+    price: 5
   - ingredientType: 6
-    positive: 090000000b000000
-    negative: 0800000002000000
+    positive:
+    - diseaseType: 9
+      known: 1
+    - diseaseType: 11
+      known: 0
+    negative:
+    - diseaseType: 8
+      known: 0
     sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-    price: 0
+    price: 5
   - ingredientType: 7
-    positive: 0a0000000c000000
-    negative: 090000000b000000
+    positive:
+    - diseaseType: 10
+      known: 1
+    - diseaseType: 12
+      known: 0
+    negative:
+    - diseaseType: 9
+      known: 0
     sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-    price: 0
+    price: 5
   - ingredientType: 8
-    positive: 0200000001000000
-    negative: 0a0000000c000000
+    positive:
+    - diseaseType: 2
+      known: 1
+    - diseaseType: 1
+      known: 0
+    negative:
+    - diseaseType: 10
+      known: 0
     sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-    price: 0
+    price: 5
   - ingredientType: 9
-    positive: 0300000006000000
-    negative: 0200000001000000
+    positive:
+    - diseaseType: 3
+      known: 1
+    - diseaseType: 6
+      known: 0
+    negative:
+    - diseaseType: 2
+      known: 0
     sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-    price: 0
+    price: 5
   - ingredientType: 10
-    positive: 0400000007000000
-    negative: 0b00000003000000
+    positive:
+    - diseaseType: 4
+      known: 1
+    - diseaseType: 7
+      known: 0
+    negative:
+    - diseaseType: 11
+      known: 0
     sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-    price: 0
+    price: 5
   - ingredientType: 11
-    positive: 0500000008000000
-    negative: 0c00000004000000
+    positive:
+    - diseaseType: 5
+      known: 1
+    - diseaseType: 8
+      known: 0
+    negative:
+    - diseaseType: 12
+      known: 0
     sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-    price: 0
+    price: 5

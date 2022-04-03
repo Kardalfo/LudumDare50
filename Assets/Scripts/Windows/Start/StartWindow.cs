@@ -13,6 +13,7 @@ namespace Windows.Start
         private void Awake()
         {
             startButton.onClick.AddListener(gameplayManager.StartGame);
+            WindowsManager.Instance.Close<StartWindow>();
         }
     }
 }
