@@ -42,10 +42,12 @@ namespace Gameplay
 
         private CharacterSettings GetSettings()
         {
-            if (_tutorialIndex < tutorialCharacterSettings.Count - 1)
+            if (_tutorialIndex < tutorialCharacterSettings.Count)
             {
+                var settings = tutorialCharacterSettings[_tutorialIndex];
                 _tutorialIndex += 1;
-                return tutorialCharacterSettings[_tutorialIndex];
+                
+                return settings;
             }
 
             return GenerateSettings();

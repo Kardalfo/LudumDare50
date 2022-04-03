@@ -93,6 +93,9 @@ namespace Workspace
 
         private void OnHealButton()
         {
+            foreach (var item in workspaceItems)
+                item.Free();
+            
             healAnimation.Play();
         }
 
