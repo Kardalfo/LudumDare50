@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using Ingredients;
 using Inventory;
 using Resources;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 namespace Windows.Shop
@@ -13,6 +15,7 @@ namespace Windows.Shop
         [SerializeField] private InventoryController inventoryController;
         [SerializeField] private ShopItem shopItemPrefab;
         [SerializeField] private Transform parent;
+        [SerializeField] private ScrollRect scroll;
 
         private readonly List<ShopItem> _shopItems = new List<ShopItem>();
 
@@ -31,6 +34,11 @@ namespace Windows.Shop
 
             OnCoinsAmountChanged(ResourcesController.CoinsAmount);
             ResourcesController.AddCoinsAmountListener(OnCoinsAmountChanged);
+        }
+
+        private void OnEnable()
+        {
+            scroll.content.anchoredPosition = new Vector2(300.0f, .0f);
         }
 
         private void BuyIngredient(Ingredient ingredient)
