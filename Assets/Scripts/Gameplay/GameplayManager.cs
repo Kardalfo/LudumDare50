@@ -22,7 +22,7 @@ namespace Gameplay
         {
             ResourcesController.SetLives(startLivesAmount);
             ResourcesController.AddLivesAmountListener(CheckLivesAmount);
-            restartButton.onClick.AddListener(Restart);
+            restartButton.onClick.AddListener(RestartOnButton);
         }
         
         public void StartGame()
@@ -37,6 +37,13 @@ namespace Gameplay
         }
 
         private void Restart()
+        {
+            ResourcesController.SetLives(startLivesAmount);
+            workspaceController.FreeAllWorkspaceItems();
+            inventoryController.Restart();
+        }
+        
+        private void RestartOnButton()
         {
             characterDiseasesController.InvokeGoHome();
             ResourcesController.SetLives(startLivesAmount);
