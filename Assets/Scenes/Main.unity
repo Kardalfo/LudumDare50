@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &23929898 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8055102141600464810, guid: d78a8bc024f9f194baa8813c3247c37d, type: 3}
-  m_PrefabInstance: {fileID: 907150739}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ffa316c010e81a4ab1a157d90d9196d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &69940917
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +469,6 @@ MonoBehaviour:
   inventoryController: {fileID: 6159478787039381920}
   workspaceController: {fileID: 250931013}
   restartButton: {fileID: 943181320}
-  characterDiseasesController: {fileID: 23929898}
 --- !u!4 &689679817
 Transform:
   m_ObjectHideFlags: 0
@@ -995,8 +983,8 @@ RectTransform:
   - {fileID: 6159478787039381922}
   - {fileID: 250931011}
   - {fileID: 212462011}
-  - {fileID: 630862218708727530}
   - {fileID: 943181319}
+  - {fileID: 630862218708727530}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1022,7 +1010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 357727075096814214, guid: 95fb15f51dc8f4d47b3d34a159aa236f, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 357727075096814214, guid: 95fb15f51dc8f4d47b3d34a159aa236f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1042,11 +1030,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 357727075096814214, guid: 95fb15f51dc8f4d47b3d34a159aa236f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 250
+      value: 170
       objectReference: {fileID: 0}
     - target: {fileID: 357727075096814214, guid: 95fb15f51dc8f4d47b3d34a159aa236f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 250
+      value: 153
       objectReference: {fileID: 0}
     - target: {fileID: 357727075096814214, guid: 95fb15f51dc8f4d47b3d34a159aa236f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1078,11 +1066,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 357727075096814214, guid: 95fb15f51dc8f4d47b3d34a159aa236f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 724.61
+      value: 339
       objectReference: {fileID: 0}
     - target: {fileID: 357727075096814214, guid: 95fb15f51dc8f4d47b3d34a159aa236f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -396.3
+      value: 459
       objectReference: {fileID: 0}
     - target: {fileID: 357727075096814214, guid: 95fb15f51dc8f4d47b3d34a159aa236f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1135,7 +1123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7922951993213806704, guid: 92bf361ffbe3cea46bb402979e54999c, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7922951993213806704, guid: 92bf361ffbe3cea46bb402979e54999c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1367,6 +1355,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inventory
       objectReference: {fileID: 0}
+    - target: {fileID: 7362387145174176766, guid: bd88dfdc38590eb49a85fdd10f48b367, type: 3}
+      propertyPath: workspaceController
+      value: 
+      objectReference: {fileID: 250931013}
     - target: {fileID: 9195266154434113177, guid: bd88dfdc38590eb49a85fdd10f48b367, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
