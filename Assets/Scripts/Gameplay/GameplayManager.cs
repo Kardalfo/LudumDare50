@@ -19,6 +19,7 @@ namespace Gameplay
 
         private void Awake()
         {
+            ResourcesController.SetVisitorsCount(0);
             ResourcesController.SetLives(startLivesAmount);
             ResourcesController.SetLivesAmountListener(CheckLivesAmount);
             restartButton.onClick.AddListener(RestartOnButton);
@@ -37,6 +38,7 @@ namespace Gameplay
 
         private void Restart()
         {
+            ResourcesController.SetVisitorsCount(0);
             ResourcesController.SetLives(startLivesAmount);
             workspaceController.FreeWorkspaceItems();
             inventoryController.Restart();

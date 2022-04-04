@@ -10,10 +10,13 @@ namespace Resources
         public static int MaxTriesAmount { get; private set; }
         
         public static int LivesAmount { get; private set; }
+        
+        public static int VisitorsCount { get; private set; }
 
         private static Action<int> _coinsAmountChangedEvent;
         private static Action<int, int> _triesAmountChangedEvent;
         private static Action<int> _livesAmountChangedEvent;
+        private static Action<int> _visitorsCountChangedEvent;
         
 
         public static void AddCoins(int amount)
@@ -38,6 +41,18 @@ namespace Resources
         {
             LivesAmount = amount;
             _livesAmountChangedEvent?.Invoke(LivesAmount);
+        }
+
+        public static void AddVisitorsCount(int amount)
+        {
+            VisitorsCount += amount;
+            _visitorsCountChangedEvent?.Invoke(VisitorsCount);
+        }
+        
+        public static void SetVisitorsCount(int amount)
+        {
+            VisitorsCount = amount;
+            _visitorsCountChangedEvent?.Invoke(VisitorsCount);
         }
 
         public static void SetTries(int amount)
@@ -96,6 +111,16 @@ namespace Resources
         public static void RemoveLivesAmountListener(Action<int> listener)
         {
             _livesAmountChangedEvent -= listener;
+        }
+
+        public static void SetVisitorsCountListener(Action<int> listener)
+        {
+            _visitorsCountChangedEvent += listener;
+        }
+
+        public static void RemoveVisitorsCountListener(Action<int> listener)
+        {
+            _visitorsCountChangedEvent -= listener;
         }
     }
 }
