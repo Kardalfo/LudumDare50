@@ -20,7 +20,7 @@ namespace Gameplay
         private void Awake()
         {
             ResourcesController.SetLives(startLivesAmount);
-            ResourcesController.AddLivesAmountListener(CheckLivesAmount);
+            ResourcesController.SetLivesAmountListener(CheckLivesAmount);
             restartButton.onClick.AddListener(RestartOnButton);
         }
         
