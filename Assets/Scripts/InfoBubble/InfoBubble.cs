@@ -11,15 +11,16 @@ namespace InfoBubble
     {
         [SerializeField] private DiseaseManager diseaseManager;
         [SerializeField] private RectTransform rectTransform;
+        [SerializeField] private Image icon;
         [SerializeField] private List<Image> healImages;
-        [SerializeField] private List<TMP_Text> healnames;
         [SerializeField] private List<Image> diseaseImages;
-        [SerializeField] private List<TMP_Text> diseasenames;
         [SerializeField] private Sprite questionMark;
 
 
         public void SetIngredient(Ingredient ingredient)
         {
+            icon.sprite = ingredient.Sprite;
+            
             var healTypes = ingredient.Positive;
             for (var i = 0; i < healImages.Count; i++)
             {
@@ -35,12 +36,10 @@ namespace InfoBubble
                 {
                     var disease = diseaseManager.GetDiseaseByType(ingredientData.diseaseType);
                     healImages[i].sprite = disease.Sprite;
-                    healnames[i].text = disease.Type.ToString();
                 }
                 else
                 {
                     healImages[i].sprite = questionMark;
-                    healnames[i].text = ingredientData.diseaseType.ToString();
                 }
             }
             
@@ -59,12 +58,10 @@ namespace InfoBubble
                 {
                     var disease = diseaseManager.GetDiseaseByType(ingredientData.diseaseType);
                     diseaseImages[i].sprite = disease.Sprite;
-                    diseasenames[i].text = disease.Type.ToString();
                 }
                 else
                 {
                     diseaseImages[i].sprite = questionMark;
-                    diseasenames[i].text = ingredientData.diseaseType.ToString();
                 }
             }
         }

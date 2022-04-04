@@ -12,7 +12,6 @@ namespace Inventory
     {
         [SerializeField] private Image image;
         [SerializeField] private Button itemButton;
-        [SerializeField] private TMP_Text name;
         
         private Action<Ingredient> _clickCallback;
         private bool _interactable;
@@ -38,7 +37,6 @@ namespace Inventory
             Ingredient = null;
             
             image.sprite = null;
-            name.text = null;
             _interactable = true;
             gameObject.SetActive(false);
         }
@@ -47,7 +45,6 @@ namespace Inventory
         {
             Ingredient = newIngredient;
             image.sprite = newIngredient.Sprite;
-            name.text = newIngredient.IngredientType.ToString();
             gameObject.SetActive(true);
         }
 

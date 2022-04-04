@@ -53,7 +53,7 @@ MonoBehaviour:
     negative:
     - diseaseType: 3
       known: 0
-    sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    sprite: {fileID: 21300000, guid: f2697ed468fc2114da0c917a2d77a19d, type: 3}
     price: 5
   - ingredientType: 1
     positive:
@@ -64,7 +64,7 @@ MonoBehaviour:
     negative:
     - diseaseType: 4
       known: 0
-    sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    sprite: {fileID: 21300000, guid: 37d24c86cafe57440908966478342753, type: 3}
     price: 5
   - ingredientType: 2
     positive:
@@ -75,7 +75,7 @@ MonoBehaviour:
     negative:
     - diseaseType: 1
       known: 0
-    sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    sprite: {fileID: 21300000, guid: b2eb74f5a4484c54a85fc010302fdcf5, type: 3}
     price: 5
   - ingredientType: 3
     positive:
@@ -86,7 +86,7 @@ MonoBehaviour:
     negative:
     - diseaseType: 6
       known: 0
-    sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+    sprite: {fileID: 21300000, guid: adc45398a34a733439062acb47fae785, type: 3}
     price: 5
   - ingredientType: 4
     positive:
@@ -99,7 +99,7 @@ MonoBehaviour:
       known: 0
     - diseaseType: 8
       known: 0
-    sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+    sprite: {fileID: 21300000, guid: 69e235382d456994da0eb80b63bae49d, type: 3}
     price: 5
   - ingredientType: 5
     positive:
@@ -110,7 +110,7 @@ MonoBehaviour:
     negative:
     - diseaseType: 5
       known: 0
-    sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+    sprite: {fileID: 21300000, guid: 1ee8ad7a387a77d4fae1e9a153ce40f2, type: 3}
     price: 5
   - ingredientType: 6
     positive:
@@ -121,7 +121,7 @@ MonoBehaviour:
     negative:
     - diseaseType: 10
       known: 0
-    sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+    sprite: {fileID: 21300000, guid: 0621f5248a6036d40b0d55a2d832cd32, type: 3}
     price: 5
   - ingredientType: 7
     positive:
@@ -132,7 +132,7 @@ MonoBehaviour:
     negative:
     - diseaseType: 2
       known: 0
-    sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+    sprite: {fileID: 21300000, guid: fe7270c9d9a2dca42a9be2bd92343890, type: 3}
     price: 5
   - ingredientType: 8
     positive:
@@ -143,7 +143,7 @@ MonoBehaviour:
     negative:
     - diseaseType: 9
       known: 0
-    sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+    sprite: {fileID: 21300000, guid: fc37144147714ea44bdc15390cadfc00, type: 3}
     price: 5
   - ingredientType: 9
     positive:
@@ -154,7 +154,7 @@ MonoBehaviour:
     negative:
     - diseaseType: 11
       known: 0
-    sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+    sprite: {fileID: 21300000, guid: 78c3d175bc08ca149aa9ae5dbc524141, type: 3}
     price: 5
   - ingredientType: 10
     positive:
@@ -165,7 +165,7 @@ MonoBehaviour:
     negative:
     - diseaseType: 12
       known: 0
-    sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+    sprite: {fileID: 21300000, guid: 457a36ec2aa909348a2e5b25da1bb927, type: 3}
     price: 5
   - ingredientType: 11
     positive:
@@ -176,5 +176,16 @@ MonoBehaviour:
     negative:
     - diseaseType: 3
       known: 0
-    sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+    sprite: {fileID: 21300000, guid: 25b341a33a4fb924e85de8aa11f80ddb, type: 3}
+    price: 5
+  - ingredientType: 14
+    positive:
+    - diseaseType: 12
+      known: 1
+    - diseaseType: 11
+      known: 0
+    negative:
+    - diseaseType: 3
+      known: 0
+    sprite: {fileID: 21300000, guid: 4c1d75905576b6140b21b72a0e849aa6, type: 3}
     price: 5
