@@ -17,5 +17,6 @@
         Boots = 11,
         SundewsFlower = 12,
         PumpkinFlower = 13,
+        Mushroom = 14,
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Bubbles;
 using Diseases;
 using Ingredients;
 using Resources;
