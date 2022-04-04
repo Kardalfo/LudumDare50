@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -447,9 +447,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a643326b86e5c5348931141200da0870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxDiseasesAmount: 4
   maxRandomDiseaseAmount: 3
   tutorialCharacterSettings:
-  - diseasesTypes: 01000000
+  - diseasesTypes: 04000000
     triesAmount: 5
     tutorialPrize: 50
   trySettings:
@@ -1367,6 +1368,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inventory
       objectReference: {fileID: 0}
+    - target: {fileID: 2587825860995590998, guid: bd88dfdc38590eb49a85fdd10f48b367, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362387145174176766, guid: bd88dfdc38590eb49a85fdd10f48b367, type: 3}
+      propertyPath: startCoinsValue
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362387145174176766, guid: bd88dfdc38590eb49a85fdd10f48b367, type: 3}
+      propertyPath: workspaceController
+      value: 
+      objectReference: {fileID: 250931013}
     - target: {fileID: 9195266154434113177, guid: bd88dfdc38590eb49a85fdd10f48b367, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
