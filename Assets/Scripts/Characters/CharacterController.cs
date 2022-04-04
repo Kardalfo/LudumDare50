@@ -80,6 +80,7 @@ namespace Characters
                 ? minPrize + triesCount * prizeMultiplier
                 : _tutorialPrize);
             
+            ResourcesController.AddVisitorsCount(1);
             HideCharacter();
         }
 
