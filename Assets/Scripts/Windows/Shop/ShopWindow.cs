@@ -16,6 +16,7 @@ namespace Windows.Shop
         [SerializeField] private ShopItem shopItemPrefab;
         [SerializeField] private Transform parent;
         [SerializeField] private ScrollRect scroll;
+        [SerializeField] private float offsetX = 400.0f;
 
         private readonly List<ShopItem> _shopItems = new List<ShopItem>();
         
@@ -38,7 +39,7 @@ namespace Windows.Shop
 
         private void OnEnable()
         {
-            scroll.content.anchoredPosition = new Vector2(300.0f, .0f);
+            scroll.content.anchoredPosition = new Vector2(offsetX, .0f);
         }
 
         private void BuyIngredient(Ingredient ingredient)
