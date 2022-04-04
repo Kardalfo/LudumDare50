@@ -70,6 +70,8 @@ namespace Characters
         {
             var newDiseases = characterDiseasesController.GiveMedicine(heals, diseases);
             activeCharacter.SetDiseases(newDiseases);
+            
+            characterDiseasesController.PlayPoof();
         }
 
         private void OnHealed(int triesCount)
