@@ -48,7 +48,7 @@ MonoBehaviour:
     positive:
     - diseaseType: 1
       known: 1
-    - diseaseType: 11
+    - diseaseType: 4
       known: 0
     negative:
     - diseaseType: 3
