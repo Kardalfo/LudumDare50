@@ -88,7 +88,7 @@ namespace Resources
             _triesAmountChangedEvent -= listener;
         }
 
-        public static void AddLivesAmountListener(Action<int> listener)
+        public static void SetLivesAmountListener(Action<int> listener)
         {
             _livesAmountChangedEvent += listener;
         }
