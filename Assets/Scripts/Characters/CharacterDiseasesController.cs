@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Bubbles;
 using Diseases;
 using Ingredients;
 using Resources;
@@ -10,9 +11,12 @@ namespace Characters
 {
     public class CharacterDiseasesController : MonoBehaviour
     {
+        private const string PoofKey = "Poof";
+        
         [SerializeField] private DiseaseManager diseaseManager;
         [SerializeField] private int maxDiseasesAmount = 4;
         [SerializeField] private List<BubbleView> bubbles;
+        [SerializeField] private Animation animation;
 
         private List<Disease> _diseases;
 
@@ -33,6 +37,11 @@ namespace Characters
         public void SetTries(int tries)
         {
             ResourcesController.SetTries(tries);
+        }
+
+        public void PlayPoof()
+        {
+            animation.Play(PoofKey);
         }
         
         public void SetDiseases(List<Disease> diseases)
