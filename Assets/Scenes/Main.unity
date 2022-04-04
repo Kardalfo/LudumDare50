@@ -1066,11 +1066,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 357727075096814214, guid: 95fb15f51dc8f4d47b3d34a159aa236f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 339
+      value: -815.59
       objectReference: {fileID: 0}
     - target: {fileID: 357727075096814214, guid: 95fb15f51dc8f4d47b3d34a159aa236f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 459
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 357727075096814214, guid: 95fb15f51dc8f4d47b3d34a159aa236f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1087,6 +1087,10 @@ PrefabInstance:
     - target: {fileID: 357727075096814215, guid: 95fb15f51dc8f4d47b3d34a159aa236f, type: 3}
       propertyPath: m_Name
       value: RestartButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 357727075096814216, guid: 95fb15f51dc8f4d47b3d34a159aa236f, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95fb15f51dc8f4d47b3d34a159aa236f, type: 3}
